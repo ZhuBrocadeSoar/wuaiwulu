@@ -35,8 +35,8 @@ Develop by ZhuBrocadeSoar
 		</div>
 		<div id="menu">
 			<ul>
-				<li class="current_page_item"><a href="#" accesskey="1" title="">主页</a></li>
-				<li><a href="blog.php" accesskey="2" title="">博客</a></li>
+				<li ><a href="index.html" accesskey="1" title="">主页</a></li>
+				<li class="current_page_item"><a href="blog.php" accesskey="2" title="">博客</a></li>
 				<li><a href="#" accesskey="3" title="">留言</a></li>
 				<li><a href="#" accesskey="4" title="">梯子</a></li>
 			</ul>
