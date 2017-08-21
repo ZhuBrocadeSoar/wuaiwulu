@@ -14,8 +14,8 @@ Develop by ZhuBrocadeSoar
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>吾爱吾庐</title>
-<meta name="keywords" content="index" />
+<title>吾爱吾庐-博客</title>
+<meta name="keywords" content="blog" />
 <meta name="description" content="" />
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
@@ -35,7 +35,7 @@ Develop by ZhuBrocadeSoar
 		</div>
 		<div id="menu">
 			<ul>
-				<li class="current_page_item"><a href="index.html" accesskey="1" title="">主页</a></li>
+				<li class="current_page_item"><a href="#" accesskey="1" title="">主页</a></li>
 				<li><a href="blog.php" accesskey="2" title="">博客</a></li>
 				<li><a href="#" accesskey="3" title="">留言</a></li>
 				<li><a href="#" accesskey="4" title="">梯子</a></li>
@@ -43,6 +43,7 @@ Develop by ZhuBrocadeSoar
 		</div>
 	</div>
 	<div id="main">
+        <!--
 		<div id="banner">
             <img src="images/aPicWithoutMe.jpg" alt="" class="image-full" height="335" width="250" />
 		</div>
@@ -56,7 +57,7 @@ Develop by ZhuBrocadeSoar
 				<li><a href="#" class="button">Etiam posuere</a></li>
 			</ul>
 		</div>
-        <!--
+        -->
 		<div id="featured">
 			<div class="title">
 				<h2>欢迎来到我的世界</h2>
@@ -86,7 +87,6 @@ Develop by ZhuBrocadeSoar
 				</li>
 			</ul>
 		</div>
-        -->
 		<div id="copyright">
 			<span><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可。</span>
 			<span>Template Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.|浙ICP备17027825号-1</span>
