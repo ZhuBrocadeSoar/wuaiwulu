@@ -26,6 +26,26 @@ Develop by ZhuBrocadeSoar
     }
     // 建立持久的数据库连接
     $_SESSION['conOfMysql'] = mysql_pconnect("localhost", "wuaiwuluDB", "wuaiwulu");
+    // 检查连接
+    if(!$_SESSION['conOfMysql']){
+        die("Could not connect: " . mysql_error());
+    }
+    mysql_select_db("wuaiwuluDB");
+    if($_SESSION['contentState'] == "list"){
+        // 查询列表内容
+        // 检查页码
+        if(!isset($_SESSION['pageNum'])){
+            $_SESSION['pageNum'] = "1" - "0";
+            $_SESSION['pageSize'] = "5" - "0";
+        }
+        $listOffset = ($_SESSION['pageNum'] - 1) * $_SESSION['pageSize'] + "0";
+        $listLimit = $_SESSION['pageSize'] + "0";
+    	$sql = "SELECT topic_date, topic_time, topic_abstract FROM topic ORDER BY topic_index DESC LIMIT " . $listOffset . ", " . $listLimit;
+        $retval = mysql_query($sql, $_SESSION['conOfMysql']);
+        if(!$retval){
+            die("Could not get list: " . mysql_error());
+        }
+    }
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -75,13 +95,16 @@ Develop by ZhuBrocadeSoar
 			</ul>
 		</div>
         -->
-        <!--动态更新列表 -->
-		<div id="featured">
+        <?php
+    if($_SESSION['contentState'] == "list"){
+		echo '<div id="featured">
 			<div class="title">
 				<h2>欢迎来到我的世界</h2>
 				<span class="byline">随笔、日记、转载，生活、技术、扯淡</span>
 			</div>
-			<ul class="style1">
+			<ul class="style1">'
+    }
+		?>
         		<!--动态更新列表-->
 				<li class="first">
 					<p class="date"><a href="#">Jan<b>05</b></a></p>
