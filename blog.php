@@ -164,9 +164,6 @@ Develop by ZhuBrocadeSoar
         echo '
         </div>
         ';
-        echo $_POST['pageNum'];
-        echo '-------';
-        echo $_SESSION['pageNum'];
     }
 		?>
 		<div id="copyright">
