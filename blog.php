@@ -119,7 +119,6 @@ Develop by ZhuBrocadeSoar
         echo '
         <div id="prevnext" style="text-align:center">';
         if($_GET['pageNum'] == 1){
-            echo ;
         }else{
             echo '<a href="?pageNum=';
         	echo $_GET['pageNum'] - 1;
@@ -129,7 +128,6 @@ Develop by ZhuBrocadeSoar
         }
         echo '上一页';
         if($_GET['pageNum'] == 1){
-            echo ;
         }else{
             echo '</a>';
         }
