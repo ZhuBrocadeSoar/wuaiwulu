@@ -117,13 +117,11 @@ Develop by ZhuBrocadeSoar
             "10" => "Oct",
             "11" => "Nov",
             "12" => "Dec");
-        print_r($date_arr_monsname);
         while($row = mysql_fetch_array($retval, MYSQL_ASSOC)){
             $date_arr=explode('-', $row['topic_date']);
-            print_r($date_arr);
             echo '
                 <li>
-                    <p class="date">' . $date_arr[2]/*计算显示日数*/ . '<b>' . $date_arr_monsname[$date_arr[1]]/*计算显示月份*/ .'</b></p>
+                    <p class="date">' . $date_arr_monsname[$date_arr[1]]/*计算显示月份*/ . '<b>' . $date_arr[2]/*计算显示日数*/ .'</b></p>
 					<h3><a href="?topic_index=' . $row['topic_index']/*传递文章id*/ . '">' . $row['topic_title']/*显示标题*/ . '</a></h3>
 					<p>' . $row['topic_abstract']/*显示摘要*/ . '</p>
 				</li>';
