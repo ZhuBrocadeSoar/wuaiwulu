@@ -25,7 +25,7 @@ Develop by ZhuBrocadeSoar
         $_SESSION['contentState'] = "list";
     }
     // 建立持久的数据库连接
-    $_SESSION['conOfMysql'] = mysql_pconnect("localhost", "wuaiwuluDB", "wuaiwulu");
+    $_SESSION['conOfMysql'] = mysql_pconnect("localhost", "nitmaker_cn", "nitmake.cn");
     // 检查连接
     if(!$_SESSION['conOfMysql']){
         die("Could not connect: " . mysql_error());
