@@ -115,9 +115,9 @@ Develop by ZhuBrocadeSoar
         }
         echo '
 			</ul>
-            <span id="prevnext" style="text-align:center">
-            <a href="?pageNum=' . $_GET['pageNum'] - 1 . '&pageSize=' . $_GET['pageSize'] . '">上一页</a>-第' . $_GET['pageNum'] . '页-<a href="?pageNum=' . $_GET['pageNum'] + 1 . '&pageSize=' . $_GET['pageSize'] . '"></a>
-            </span>
+            <p id="prevnext" style="text-align:center">
+            <a href="?pageNum=' . $_GET['pageNum'] - 1 . '&pageSize=' . $_GET['pageSize'] . '">上一页</a>-第' . $_GET['pageNum'] . '页-<a href="?pageNum=' . $_GET['pageNum'] + 1 . '&pageSize=' . $_GET['pageSize'] . '">下一页</a>
+            </p>
         </div>
         ';
     }
