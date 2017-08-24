@@ -97,14 +97,13 @@ Develop by ZhuBrocadeSoar
         -->
         <?php
     if($_SESSION['contentState'] == "list"){
-		echo '<div id="featured">
+        echo '
+		<div id="featured">
 			<div class="title">
 				<h2>欢迎来到我的世界</h2>
 				<span class="byline">随笔、日记、转载，生活、技术、扯淡</span>
 			</div>
-			<ul class="style1">'
-    }
-		?>
+			<ul class="style1">
         		<!--动态更新列表-->
 				<li class="first">
 					<p class="date"><a href="#">Jan<b>05</b></a></p>
@@ -127,7 +126,9 @@ Develop by ZhuBrocadeSoar
 					<p><a href="#">Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie. Donec leo, vivamus fermentum nibh in augue praesent congue rutrum.</a></p>
 				</li>
 			</ul>
-		</div>
+		</div>';
+    }
+		?>
 		<div id="copyright">
 			<span><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可。</span>
 			<span>Template Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.|浙ICP备17027825号-1</span>
