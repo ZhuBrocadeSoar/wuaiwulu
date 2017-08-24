@@ -142,10 +142,10 @@ Develop by ZhuBrocadeSoar
         <div id="prevnext" style="text-align:center">';
         ?>
         <form name="prevpost" action="blog.php" method="post">
-        <input type="hidden" name="pageNum" value=<?php echo $_SESSION['pageNum'] - 1; ?>/>
+        <input type="hidden" name="pageNum" value=<?php echo $_SESSION['pageNum'] - 1; ?> />
         </form>
         <form name="nextpost" action="blog.php" method="post">
-        <input type="hidden" name="pageNum" value=<?php echo $_SESSION['pageNum'] + 1; ?>/>
+        <input type="hidden" name="pageNum" value=<?php echo $_SESSION['pageNum'] + 1; ?> />
         </form>
         <?php
         if($_SESSION['pageNum'] == 1){
