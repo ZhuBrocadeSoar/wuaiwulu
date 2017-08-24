@@ -105,10 +105,23 @@ Develop by ZhuBrocadeSoar
 			</div>
 			<ul class="style1">';
         		// <!--动态更新列表-->
+        $date_arr_monsname = array("01" => "Jan",
+            "02" => "Feb",
+            "03" => "Mar",
+            "04" => "Apr",
+            "05" => "May",
+            "06" => "Jun",
+            "07" => "Jul",
+            "08" => "Aug",
+            "09" => "Sep",
+            "10" => "Oct",
+            "11" => "Nov",
+            "12" => "Dec");
         while($row = mysql_fetch_array($retval, MYSQL_ASSOC)){
+            $date_arr=explode('-', $row['topic_date']);
             echo '
                 <li>
-                    <p class="date">' . $row['topic_date']/*计算显示月份*/ . '<b>' . $row['topic_date']/*计算显示日数*/ .'</b></p>
+                    <p class="date">' . $date_arr_monsname[$date_arr[2]]/*计算显示月份*/ . '<b>' . $date_arr[3]/*计算显示日数*/ .'</b></p>
 					<h3><a href="?topic_index=' . $row['topic_index']/*传递文章id*/ . '">' . $row['topic_title']/*显示标题*/ . '</a></h3>
 					<p>' . $row['topic_abstract']/*显示摘要*/ . '</p>
 				</li>';
