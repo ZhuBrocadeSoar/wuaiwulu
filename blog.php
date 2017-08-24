@@ -99,6 +99,9 @@ Develop by ZhuBrocadeSoar
 		</div>
         -->
         <?php
+    if(isset($_POST['contentState'])){
+        $_SESSION['contentState'] = $_POST['contentState'];
+    }
     if($_SESSION['contentState'] == "list"){
         echo '
 		<div id="featured">
@@ -168,6 +171,8 @@ Develop by ZhuBrocadeSoar
         echo '
         </div>
         ';
+    }else{
+        echo '测试：' . $_POST['topic_index'];
     }
 		?>
 		<div id="copyright">
