@@ -114,10 +114,10 @@ Develop by ZhuBrocadeSoar
 				</li>';
         }
         echo '
-            <p id="prevnext" style="text-align:center">
-            <a href="?pageNum=' . $_GET['pageNum'] - 1 . '&pageSize=' . $_GET['pageSize'] . '">上一页</a>-第' . $_GET['pageNum'] . '页-<a href="?pageNum=' . $_GET['pageNum'] + 1 . '&pageSize=' . $_GET['pageSize'] . '">下一页</a>
-            </p>
 			</ul>
+        </div>
+        <div id="prevnext" style="text-align:center">
+        <a href="?pageNum=' . $_GET['pageNum'] - 1 . '&pageSize=' . $_GET['pageSize'] . '">上一页</a>-第' . $_GET['pageNum'] . '页-<a href="?pageNum=' . $_GET['pageNum'] + 1 . '&pageSize=' . $_GET['pageSize'] . '">下一页</a>
         </div>
         ';
     }
