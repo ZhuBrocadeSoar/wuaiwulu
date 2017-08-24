@@ -34,13 +34,13 @@ Develop by ZhuBrocadeSoar
     if($_SESSION['contentState'] == "list"){
         // 查询列表内容
         // 检查页码
-        if(!isset($_SESSION['pageNum'])){
-            $_SESSION['pageNum'] = "1" - "0";
-            $_SESSION['pageSize'] = "5" - "0";
+        if(!isset($_POST['pageNum'])){
+            $_POST['pageNum'] = "1" - "0";
+            $_POST['pageSize'] = "5" - "0";
         }
-        $listOffset = ($_SESSION['pageNum'] - 1) * $_SESSION['pageSize'] + "0";
-        $listLimit = $_SESSION['pageSize'] + "0";
-    	$sql = "SELECT topic_index, topic_date, topic_time, topic_abstract FROM topic ORDER BY topic_index DESC LIMIT " . $listOffset . ", " . $listLimit;
+        $listOffset = ($_POST['pageNum'] - 1) * $_POST['pageSize'] + "0";
+        $listLimit = $_POST['pageSize'] + "0";
+    	$sql = "SELECT topic_index, topic_date, topic_time, topic_abstract, topic_title FROM topic ORDER BY topic_index DESC LIMIT " . $listOffset . ", " . $listLimit;
         $retval = mysql_query($sql, $_SESSION['conOfMysql']);
         if(!$retval){
             die("Could not get list: " . mysql_error());
@@ -109,7 +109,7 @@ Develop by ZhuBrocadeSoar
             echo '
                 <li>
                     <p class="date">' . $row['topic_date']/*计算显示月份*/ . '<b>' . $row['topic_date']/*计算显示日数*/ .'</b></p>
-					<h3><a href="?topic_index=' . $row['topic_index']/*传递文章id*/ . '">Amet sed volutpat mauris</a></h3>
+					<h3><a href="?topic_index=' . $row['topic_index']/*传递文章id*/ . '">' . $row['topic_title']/*显示标题*/ . '</a></h3>
 					<p>' . $row['topic_abstract']/*显示摘要*/ . '</p>
 				</li>';
         }
