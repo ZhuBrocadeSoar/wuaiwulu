@@ -34,12 +34,15 @@ Develop by ZhuBrocadeSoar
     if($_SESSION['contentState'] == "list"){
         // 查询列表内容
         // 检查页码
-        if(!isset($_GET['pageNum'])){
-            $_GET['pageNum'] = "1" - "0";
-            $_GET['pageSize'] = "5" - "0";
+        if(!isset($_SESSION['pageNum'])){
+            $_SESSION['pageNum'] = 1;
+            $_SESSION['pageSize'] = 5;
+        }else{
+            // 已设置页码和显示数量, 从POST获取数据
+            $_SESSION['pageNum'] = $_POST['pageNum'];
         }
-        $listOffset = ($_GET['pageNum'] - 1) * $_GET['pageSize'] + "0";
-        $listLimit = $_GET['pageSize'] + "0";
+        $listOffset = ($_SESSION['pageNum'] - 1) * $_SESSION['pageSize'] + "0";
+        $listLimit = $_SESSION['pageSize'] + "0";
     	$sql = "SELECT topic_index, topic_date, topic_time, topic_abstract, topic_title FROM topic ORDER BY topic_index DESC LIMIT " . $listOffset . ", " . $listLimit;
         $retval = mysql_query($sql, $_SESSION['conOfMysql']);
         if(!$retval){
@@ -134,29 +137,29 @@ Develop by ZhuBrocadeSoar
             die("Could not get list: " . mysql_error());
         }
         $row = mysql_fetch_array($retval, MYSQL_ASSOC);
-        $maxpagenum = ($row['COUNT(*)'] - $row['COUNT(*)'] % $_GET['pageSize']) / $_GET['pageSize'] + (($row['COUNT(*)'] % $_GET['pageSize'] == 0)?0:1);
+        $maxpagenum = ($row['COUNT(*)'] - $row['COUNT(*)'] % $_SESSION['pageSize']) / $_SESSION['pageSize'] + (($row['COUNT(*)'] % $_SESSION['pageSize'] == 0)?0:1);
         echo '
         <div id="prevnext" style="text-align:center">';
-        if($_GET['pageNum'] == 1){
+        ?>
+        <form name="prevpost" action="blog.php" method="post">
+        <input type="hidden" name="pageNum" value=<?php echo $_SESSION['pageNum'] - 1; ?>/>
+        </form>
+        <form name="nextpost" action="blog.php" method="post">
+        <input type="hidden" name="pageNum" value=<?php echo $_SESSION['pageNum'] + 1; ?>/>
+        </form>
+        <?php
+        if($_SESSION['pageNum'] == 1){
         }else{
-            echo '<a href="?pageNum=';
-        	echo $_GET['pageNum'] - 1;
-            echo '&pageSize=';
-            echo $_GET['pageSize'];
-            echo '">';
-        	echo '上一页';
-            echo '</a>';
+            echo '<a href="javascript:document.prevpost.submit();">';
+        	echo '上一页</a>';
         }
         echo '-第';
-        echo $_GET['pageNum'];
+        echo $_SESSION['pageNum'];
         echo '页-';
-        if($_GET['pageNum'] == $maxpagenum){
+        if($_SESSION['pageNum'] == $maxpagenum){
         }else{
-            echo '<a href="?pageNum=';
-            echo $_GET['pageNum'] + 1;
-            echo '&pageSize=';
-            echo $_GET['pageSize'];
-            echo '">下一页</a>';
+            echo '<a href="javascript:document.prevpost.submit();">';
+            echo '"下一页</a>';
         }
         echo '
         </div>
