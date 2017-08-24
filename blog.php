@@ -116,6 +116,12 @@ Develop by ZhuBrocadeSoar
         echo '
 			</ul>
         </div>';
+        $retval = mysql_query("SELECT COUNT(*) FROM topic", $_SESSION['conOfMysql']);
+        if(!$retval){
+            die("Could not get list: " . mysql_error());
+        }
+        $row = mysql_fetch_array($retval, MYSQL_ASSOC);
+        $maxpagenum = $row['COUNT(*)'] / $_GET['pageSize'] + ($row['COUNT(*)'] % 5 == 0)?0:1;
         echo '
         <div id="prevnext" style="text-align:center">';
         if($_GET['pageNum'] == 1){
@@ -125,20 +131,20 @@ Develop by ZhuBrocadeSoar
             echo '&pageSize=';
             echo $_GET['pageSize'];
             echo '">';
-        }
-        echo '上一页';
-        if($_GET['pageNum'] == 1){
-        }else{
+        	echo '上一页';
             echo '</a>';
         }
         echo '-第';
         echo $_GET['pageNum'];
         echo '页-';
-        echo '<a href="?pageNum=';
-        echo $_GET['pageNum'] + 1;
-        echo '&pageSize=';
-        echo $_GET['pageSize'];
-        echo '">下一页</a>';
+        if($_GET['pageNum'] == $maxpagenum){
+        }else{
+            echo '<a href="?pageNum=';
+            echo $_GET['pageNum'] + 1;
+            echo '&pageSize=';
+            echo $_GET['pageSize'];
+            echo '">下一页</a>';
+        }
         echo '
         </div>
         ';
