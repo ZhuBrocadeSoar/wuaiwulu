@@ -45,8 +45,8 @@ Develop by ZhuBrocadeSoar
 <div id="page" class="container">
 	<div id="header">
 		<div id="logo">
-			<img src="images/logo.png" alt="" height="128" width="128" />
-			<h1><a href="index.php">soar</a></h1>
+			<a href="http://brocadesoar.cn"><img src="images/logo.png" alt="" height="128" width="128" /></a>
+			<h1><a href="http://brocadesoar.cn">soar</a></h1>
 			<span>Develop by <a href="http://brocadesoar.cn" rel="nofollow">ZhuBrocadeSoar</a></span>
             <span><p>腹中没有半瓶醋，三分热度写我情，</p><p>文章从来教我改，不敢写一句违心。</p></span>
 		</div>
