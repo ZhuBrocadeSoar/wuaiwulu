@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE php PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by TEMPLATED
 http://templated.co
@@ -11,6 +11,23 @@ Released   : 20130902
 
 Develop by ZhuBrocadeSoar
 -->
+
+<!-- session初始化 -->
+<?php
+    session_start();	
+    if(isset($_SESSION['state'])){
+        // 已存在session
+        $_SESSION['state'] = "1";
+    }else{
+        // 不存在session，初始化
+        $_SESSION['state'] = "1";
+        $_SESSION['userState'] = "nameLess";
+        $_SESSION['contentState'] = "list";
+    }
+    // 建立持久的数据库连接
+    $_SESSION['conOfMysql'] = mysql_pconnect("localhost", "wuaiwuluDB", "wuaiwulu");
+?>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -29,13 +46,13 @@ Develop by ZhuBrocadeSoar
 	<div id="header">
 		<div id="logo">
 			<img src="images/logo.png" alt="" height="128" width="128" />
-			<h1><a href="index.html">soar</a></h1>
+			<h1><a href="index.php">soar</a></h1>
 			<span>Develop by <a href="http://brocadesoar.cn" rel="nofollow">ZhuBrocadeSoar</a></span>
             <span><p>腹中没有半瓶醋，三分热度写我情，</p><p>文章从来教我改，不敢写一句违心。</p></span>
 		</div>
 		<div id="menu">
 			<ul>
-				<li ><a href="index.html" accesskey="1" title="">主页</a></li>
+				<li ><a href="index.php" accesskey="1" title="">主页</a></li>
 				<li class="current_page_item"><a href="blog.php" accesskey="2" title="">博客</a></li>
 				<li><a href="#" accesskey="3" title="">留言</a></li>
 				<li><a href="#" accesskey="4" title="">梯子</a></li>
@@ -58,6 +75,7 @@ Develop by ZhuBrocadeSoar
 			</ul>
 		</div>
         -->
+        <!--动态更新列表 -->
 		<div id="featured">
 			<div class="title">
 				<h2>欢迎来到我的世界</h2>
