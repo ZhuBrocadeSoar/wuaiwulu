@@ -124,8 +124,12 @@ Develop by ZhuBrocadeSoar
             $date_arr=explode('-', $row['topic_date']);
             echo '
                 <li>
+                    <form name="topic' . $row['topic_index'] . 'post" action="blog.php" method="post">
+                    <input type="hidden" name="topic_index" value=' . $row['topic_index'] . ' />
+                    <input type="hidden" name="contentState" value="topic">
+                    </form>
                     <p class="date">' . $date_arr_monsname[$date_arr[1]]/*计算显示月份*/ . '<b>' . $date_arr[2]/*计算显示日数*/ .'</b></p>
-					<h3><a href="?topic_index=' . $row['topic_index']/*传递文章id*/ . '">' . $row['topic_title']/*显示标题*/ . '</a></h3>
+					<h3><a href="javascript:document.topic' . $row['topic_index'] . 'post.submit();">' . $row['topic_title']/*显示标题*/ . '</a></h3>
 					<p>' . $row['topic_abstract']/*显示摘要*/ . '</p>
 				</li>';
         }
