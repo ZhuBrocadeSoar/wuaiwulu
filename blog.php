@@ -40,6 +40,8 @@ Develop by ZhuBrocadeSoar
         }
         $listOffset = ($_POST['pageNum'] - 1) * $_POST['pageSize'] + "0";
         $listLimit = $_POST['pageSize'] + "0";
+        echo "pageNum = " . $_POST['pageNum'] . "<br/>";
+        echo "pageSize = " . $_POST['pageSize'] . "<br/>";
     	$sql = "SELECT topic_index, topic_date, topic_time, topic_abstract, topic_title FROM topic ORDER BY topic_index DESC LIMIT " . $listOffset . ", " . $listLimit;
         $retval = mysql_query($sql, $_SESSION['conOfMysql']);
         if(!$retval){
