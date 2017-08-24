@@ -108,9 +108,9 @@ Develop by ZhuBrocadeSoar
         while($row = mysql_fetch_array($retval, MYSQL_ASSOC)){
             echo '
                 <li>
-                    <p class="date">' . $row['topic_date']/*计算显示月份*/ . '<b>' . $row['topic_date']/*计算显示日数*/ .'</b></a></p>
-					<h3>Amet sed volutpat mauris</h3>
-					<p><a href="?topic_index=' . $row['topic_index']/*传递文章id*/ . '">' . $row['topic_abstract']/*显示摘要*/ . '</a></p>
+                    <p class="date">' . $row['topic_date']/*计算显示月份*/ . '<b>' . $row['topic_date']/*计算显示日数*/ .'</b></p>
+					<h3><a href="?topic_index=' . $row['topic_index']/*传递文章id*/ . '">Amet sed volutpat mauris</a></h3>
+					<p>' . $row['topic_abstract']/*显示摘要*/ . '</p>
 				</li>';
         }
         echo '
