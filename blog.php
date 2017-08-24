@@ -118,10 +118,20 @@ Develop by ZhuBrocadeSoar
         </div>';
         echo '
         <div id="prevnext" style="text-align:center">';
+        echo '<a href="?pageNum=';
+        echo $_GET['pageNum'] - 1;
+        echo '&pageSize=';
+        echo $_GET['pageSize'];
+        echo '">上一页</a>-第';
+        echo $_GET['pageNum'];
+        echo '页-<a href="?pageNum=';
+        echo $_GET['pageNum'] + 1;
+        echo '&pageSize=';
+        echo $_GET['pageSize'];
+        echo '">下一页</a>';
         echo '
-            <a href="?pageNum=' . $_GET['pageNum'] - 1 . '&pageSize=' . $_GET['pageSize'] . '">上一页</a>-第' . $_GET['pageNum'] . '页-<a href="?pageNum=' . $_GET['pageNum'] + 1 . '&pageSize=' . $_GET['pageSize'] . '">下一页</a>';
-        echo '
-        </div>';
+        </div>
+        ';
     }
 		?>
 		<div id="copyright">
