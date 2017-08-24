@@ -34,14 +34,14 @@ Develop by ZhuBrocadeSoar
     if($_SESSION['contentState'] == "list"){
         // 查询列表内容
         // 检查页码
-        if(!isset($_POST['pageNum'])){
-            $_POST['pageNum'] = "1" - "0";
-            $_POST['pageSize'] = "5" - "0";
+        if(!isset($_GET['pageNum'])){
+            $_GET['pageNum'] = "1" - "0";
+            $_GET['pageSize'] = "5" - "0";
         }
-        $listOffset = ($_POST['pageNum'] - 1) * $_POST['pageSize'] + "0";
-        $listLimit = $_POST['pageSize'] + "0";
-        echo "pageNum = " . $_POST['pageNum'] . "<br/>";
-        echo "pageSize = " . $_POST['pageSize'] . "<br/>";
+        $listOffset = ($_GET['pageNum'] - 1) * $_GET['pageSize'] + "0";
+        $listLimit = $_GET['pageSize'] + "0";
+        echo "pageNum = " . $_GET['pageNum'] . "<br/>";
+        echo "pageSize = " . $_GET['pageSize'] . "<br/>";
     	$sql = "SELECT topic_index, topic_date, topic_time, topic_abstract, topic_title FROM topic ORDER BY topic_index DESC LIMIT " . $listOffset . ", " . $listLimit;
         $retval = mysql_query($sql, $_SESSION['conOfMysql']);
         if(!$retval){
