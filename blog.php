@@ -40,7 +40,7 @@ Develop by ZhuBrocadeSoar
         }
         $listOffset = ($_SESSION['pageNum'] - 1) * $_SESSION['pageSize'] + "0";
         $listLimit = $_SESSION['pageSize'] + "0";
-    	$sql = "SELECT topic_date, topic_time, topic_abstract FROM topic ORDER BY topic_index DESC LIMIT " . $listOffset . ", " . $listLimit;
+    	$sql = "SELECT topic_index, topic_date, topic_time, topic_abstract FROM topic ORDER BY topic_index DESC LIMIT " . $listOffset . ", " . $listLimit;
         $retval = mysql_query($sql, $_SESSION['conOfMysql']);
         if(!$retval){
             die("Could not get list: " . mysql_error());
@@ -103,13 +103,15 @@ Develop by ZhuBrocadeSoar
 				<h2>欢迎来到我的世界</h2>
 				<span class="byline">随笔、日记、转载，生活、技术、扯淡</span>
 			</div>
-			<ul class="style1">
-        		<!--动态更新列表-->
-				<li class="first">
-					<p class="date"><a href="#">Jan<b>05</b></a></p>
+			<ul class="style1">';
+        		// <!--动态更新列表-->
+        while($row = mysql_fetch_array($retval, MYSQL_ASSOC)){
+				echo '<li class="first">
+                    <p class="date"><a href="?topic_index=' . $row['topic_index']/*传递文章id*/ . '">' . $row['topic_date']/*计算显示月份*/ . '<b>' . $row['topic_date']/*计算显示日数*/ .'</b></a></p>
 					<h3>Amet sed volutpat mauris</h3>
-					<p><a href="#">Consectetuer adipiscing elit. Nam pede erat, porta eu, lobortis eget, tempus et, tellus. Etiam neque. Vivamus consequat lorem at nisl. Nullam non wisi a sem semper eleifend. Etiam non felis. Donec ut ante.</a></p>
-				</li>
+					<p><a href="' . $row['topic_index']/*传递文章id*/ . '">' . $row['topic_abstract']/*显示摘要*/ . '</a></p>
+				</li>';
+        }
 				<li>
 					<p class="date"><a href="#">Jan<b>03</b></a></p>
 					<h3>Sagittis diam dolor amet</h3>
@@ -125,6 +127,7 @@ Develop by ZhuBrocadeSoar
 					<h3>Sagittis diam dolor amet</h3>
 					<p><a href="#">Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie. Donec leo, vivamus fermentum nibh in augue praesent congue rutrum.</a></p>
 				</li>
+        echo '
 			</ul>
 		</div>';
     }
