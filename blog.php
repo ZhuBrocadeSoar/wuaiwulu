@@ -159,12 +159,13 @@ Develop by ZhuBrocadeSoar
         if($_SESSION['pageNum'] == $maxpagenum){
         }else{
             echo '<a href="javascript:document.nextpost.submit();">';
-            echo '"下一页</a>';
+            echo '下一页</a>';
         }
         echo '
         </div>
         ';
         echo $_POST['pageNum'];
+        echo '-------';
         echo $_SESSION['pageNum'];
     }
 		?>
