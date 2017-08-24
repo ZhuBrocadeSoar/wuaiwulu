@@ -117,8 +117,10 @@ Develop by ZhuBrocadeSoar
             "10" => "Oct",
             "11" => "Nov",
             "12" => "Dec");
+        print_r($date_arr_monsname);
         while($row = mysql_fetch_array($retval, MYSQL_ASSOC)){
             $date_arr=explode('-', $row['topic_date']);
+            print_r($date_arr);
             echo '
                 <li>
                     <p class="date">' . $date_arr_monsname[$date_arr[2]]/*计算显示月份*/ . '<b>' . $date_arr[3]/*计算显示日数*/ .'</b></p>
