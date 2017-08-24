@@ -158,7 +158,7 @@ Develop by ZhuBrocadeSoar
         echo '页-';
         if($_SESSION['pageNum'] == $maxpagenum){
         }else{
-            echo '<a href="javascript:document.prevpost.submit();">';
+            echo '<a href="javascript:document.nextpost.submit();">';
             echo '"下一页</a>';
         }
         echo '
