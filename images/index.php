@@ -1,4 +1,4 @@
 <?php
-	header("Location:http://brocadesoar.cn/wuaiwulu/permitiondenied.php");	
+	header("Location:http://brocadesoar.cn/permitiondenied.php");	
 	exit;	
 ?>
