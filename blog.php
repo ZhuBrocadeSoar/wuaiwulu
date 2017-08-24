@@ -106,7 +106,8 @@ Develop by ZhuBrocadeSoar
 			<ul class="style1">';
         		// <!--动态更新列表-->
         while($row = mysql_fetch_array($retval, MYSQL_ASSOC)){
-				echo '<li class="first">
+            echo '
+                <li class="first">
                     <p class="date"><a href="?topic_index=' . $row['topic_index']/*传递文章id*/ . '">' . $row['topic_date']/*计算显示月份*/ . '<b>' . $row['topic_date']/*计算显示日数*/ .'</b></a></p>
 					<h3>Amet sed volutpat mauris</h3>
 					<p><a href="' . $row['topic_index']/*传递文章id*/ . '">' . $row['topic_abstract']/*显示摘要*/ . '</a></p>
