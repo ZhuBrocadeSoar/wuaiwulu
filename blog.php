@@ -122,7 +122,7 @@ Develop by ZhuBrocadeSoar
         }
         $row = mysql_fetch_array($retval, MYSQL_ASSOC);
         $maxpagenum = $row['COUNT(*)'] / $_GET['pageSize'] + ($row['COUNT(*)'] % 5 == 0)?0:1;
-        echo $maxpagenum;
+        echo $row['COUNT(*)'] . '---' . $maxpagenum;
         echo '
         <div id="prevnext" style="text-align:center">';
         if($_GET['pageNum'] == 1){
