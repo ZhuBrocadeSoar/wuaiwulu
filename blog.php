@@ -121,7 +121,7 @@ Develop by ZhuBrocadeSoar
             die("Could not get list: " . mysql_error());
         }
         $row = mysql_fetch_array($retval, MYSQL_ASSOC);
-        $maxpagenum = ($row['COUNT(*)'] - "0") / $_GET['pageSize'] + ($row['COUNT(*)'] % 5 == 0)?0:1;
+        $maxpagenum = ($row['COUNT(*)'] - $row['COUNT(*)'] % $_GET['pageSize']) / $_GET['pageSize'] + (($row['COUNT(*)'] % $_GET['pageSize'] == 0)?0:1);
         echo $row['COUNT(*)'] . '---' . $maxpagenum;
         echo '
         <div id="prevnext" style="text-align:center">';
