@@ -22,9 +22,6 @@ Develop by ZhuBrocadeSoar
         // 不存在session，初始化
         $_SESSION['state'] = "1";
         $_SESSION['userState'] = "nameLess";
-        $_SESSION['contentState'] = "list";
-        $_SESSION['pageNum'] = 1;
-        $_SESSION['pageSize'] = 5;
     }
 ?>
 
@@ -51,17 +48,9 @@ Develop by ZhuBrocadeSoar
             <span><p>腹中没有半瓶醋，三分热度写我情，</p><p>文章从来教我改，不敢写一句违心。</p></span>
 		</div>
 		<div id="menu">
-            <form name="indexpost" action="index.php" method="post">
-            <input type="hidden" name="nouse" value="nouse" />
-            </form>
-            <form name="blogpost" action="blog.php" method="post">
-            <input type="hidden" name="contentState" value="list" />
-            <input type="hidden" name="pageNum" value=1 />
-            <input type="hidden" name="pageSize" value=5 />
-            </form>
 			<ul>
-				<li class="current_page_item"><a href="javascript:document.indexpost.submit();" accesskey="1" title="">主页</a></li>
-				<li><a href="javascript:document.blogpost.submit();" accesskey="2" title="">博客</a></li>
+				<li class="current_page_item"><a href="http://brocadesoar.cn" accesskey="1" title="">主页</a></li>
+				<li><a href="blog.php" accesskey="2" title="">博客</a></li>
 				<li><a href="#" accesskey="3" title="">留言</a></li>
 				<li><a href="#" accesskey="4" title="">梯子</a></li>
 			</ul>

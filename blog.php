@@ -12,8 +12,9 @@ Released   : 20130902
 Develop by ZhuBrocadeSoar
 -->
 
-<!-- session初始化 -->
+<!-- session和参数检查 -->
 <?php
+    // session 初始化///////////////////////
     session_start();	
     if(isset($_SESSION['state'])){
         // 已存在session
@@ -21,11 +22,9 @@ Develop by ZhuBrocadeSoar
     }else{
         // 不存在session，初始化
         $_SESSION['state'] = "1";
-        $_SESSION['userState'] = "nameLess";
-        $_SESSION['contentState'] = "list";
-        $_SESSION['pageNum'] = 1;
-        $_SESSION['pageSize'] = 5;
     }
+
+    // 检查数据库连接///////////////////////
     // 建立持久的数据库连接
     $_SESSION['conOfMysql'] = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
     // 检查连接
@@ -33,29 +32,63 @@ Develop by ZhuBrocadeSoar
         die("Could not connect: " . mysql_error());
     }
     mysql_select_db("wuaiwuluDB");
-    if(isset($_POST['contentState'])){
-        $_SESSION['contentState'] = $_POST['contentState'];
+
+    // 检查GET参数//////////////////////////
+    // contentState
+    if(isset($_GET['contentState'])){
+        // 存在
+        if($_GET['contentState'] == "list" || $_GET['contentState'] == "topic"/*合法*/){
+            // 值合法，赋值
+            $_SESSION['contentState'] = $_GET['contentState'];
+        }else{
+            // 值不合法，设置默认值
+            $_SESSION['contentState'] = "list";
+        }
+    }else{
+        // 不存在，设置默认值
+        $_SESSION['contentState'] = "list";
     }
-    if(isset($_POST['contentState'])){
-        $_SESSION['contentState'] = $_POST['contentState'];
-    }
+    // 根据contentState决定接下来检查什么参数
     if($_SESSION['contentState'] == "list"){
-        // 查询列表内容
-        // 检查页码
-        if(isset($_POST['pageNum'])){
-            // 提交了数据
-            $_SESSION['pageNum'] = $_POST['pageNum'];
+        // 请求列表页，检查相关参数/////////
+        // pageNum
+        if(isset($_GET['pageNum'])){
+            // 存在
+            // 查询数据库获知最大页码
+            // pageSize
+            if(isset($_GET['pageSize'])){
+                // 存在
+                if($_GET['pageSize'] > 0){
+                    // 合法，赋值
+                    $_SESSION['pageSize'] = $_GET['pageSize'];
+                }else{
+                    // 不合法，设置默认值
+                    $_SESSION['pageSize'] = 5;
+                }
+            }else{
+                // 不存在，设置默认值
+                $_SESSION['pageSize'] = 5;
+            }
+            $retval = mysql_query("SELECT COUNT(*) FROM topic", $_SESSION['conOfMysql']);
+            if(!$retval){
+                die("Could not get list: " . mysql_error());
+            }
+            $row = mysql_fetch_array($retval, MYSQL_ASSOC);
+            $_SESSION['maxPageNum'] = ($row['COUNT(*)'] - $row['COUNT(*)'] % $_SESSION['pageSize']) / $_SESSION['pageSize'] + (($row['COUNT(*)'] % $_SESSION['pageSize'] == 0)?0:1);
+            if($_GET['pageNum'] > 0 && $_GET['pageNum'] <= $_SESSION['maxPageNum']/*合法*/){
+                // 值合法，赋值
+                $_SESSION['pageNum'] =  $_GET['pageNum'];
+            }else{
+                // 值不合法，设置默认值
+                $_SESSION['pageNum'] = 1;
+            }
+        }else{
+            // 不存在，设置默认值
+            $_SESSION['pageNum'] = 1;
         }
-        if(isset($_POST['pageSize'])){
-            $_SESSION['pageSize'] = $_POST['pageSize'];
-        }
-        $listOffset = ($_SESSION['pageNum'] - 1) * $_SESSION['pageSize'] + "0";
-        $listLimit = $_SESSION['pageSize'] + "0";
-    	$sql = "SELECT topic_index, topic_date, topic_time, topic_abstract, topic_title FROM topic ORDER BY topic_index DESC LIMIT " . $listOffset . ", " . $listLimit;
-        $retval = mysql_query($sql, $_SESSION['conOfMysql']);
-        if(!$retval){
-            die("Could not get list: " . mysql_error());
-        }
+
+    }else{
+        // 请求主题页，检查相关参数
     }
 ?>
 
@@ -82,17 +115,9 @@ Develop by ZhuBrocadeSoar
             <span><p>腹中没有半瓶醋，三分热度写我情，</p><p>文章从来教我改，不敢写一句违心。</p></span>
 		</div>
 		<div id="menu">
-            <form name="indexpost" action="index.php" method="post">
-            <input type="hidden" name="nouse" value="nouse" />
-            </form>
-            <form name="blogpost" action="blog.php" method="post">
-            <input type="hidden" name="contentState" value="list" />
-            <input type="hidden" name="pageNum" value=1 />
-            <input type="hidden" name="pageSize" value=5 />
-            </form>
 			<ul>
-				<li ><a href="javascript:document.indexpost.submit();" accesskey="1" title="">主页</a></li>
-				<li class="current_page_item"><a href="javascript:document.blogpost.submit();" accesskey="2" title="">博客</a></li>
+				<li ><a href="http://brocadesoar.cn" accesskey="1" title="">主页</a></li>
+				<li class="current_page_item"><a href="blog.php" accesskey="2" title="">博客</a></li>
 				<li><a href="#" accesskey="3" title="">留言</a></li>
 				<li><a href="#" accesskey="4" title="">梯子</a></li>
 			</ul>
@@ -116,6 +141,14 @@ Develop by ZhuBrocadeSoar
         -->
         <?php
     if($_SESSION['contentState'] == "list"){
+        // 查询列表内容
+        $listOffset = ($_SESSION['pageNum'] - 1) * $_SESSION['pageSize'] + "0";
+        $listLimit = $_SESSION['pageSize'] + "0";
+    	$sql = "SELECT topic_index, topic_date, topic_time, topic_abstract, topic_title FROM topic ORDER BY topic_index DESC LIMIT " . $listOffset . ", " . $listLimit;
+        $retval = mysql_query($sql, $_SESSION['conOfMysql']);
+        if(!$retval){
+            die("Could not get list: " . mysql_error());
+        }
         echo '
 		<div id="featured">
 			<div class="title">
@@ -140,52 +173,49 @@ Develop by ZhuBrocadeSoar
             $date_arr=explode('-', $row['topic_date']);
             echo '
                 <li>
-                    <form name="topic' . $row['topic_index'] . 'post" action="blog.php" method="post">
-                    <input type="hidden" name="topic_index" value=' . $row['topic_index'] . ' />
-                    <input type="hidden" name="contentState" value="topic">
-                    </form>
                     <p class="date">' . $date_arr_monsname[$date_arr[1]]/*计算显示月份*/ . '<b>' . $date_arr[2]/*计算显示日数*/ .'</b></p>
-					<h3><a href="javascript:document.topic' . $row['topic_index'] . 'post.submit();">' . $row['topic_title']/*显示标题*/ . '</a></h3>
+					<h3><a href="blog.php?contentState=topic&topic_index=' . $row['topic_index'] . '">' . $row['topic_title']/*显示标题*/ . '</a></h3>
 					<p>' . $row['topic_abstract']/*显示摘要*/ . '</p>
 				</li>';
         }
         echo '
 			</ul>
         </div>';
-        $retval = mysql_query("SELECT COUNT(*) FROM topic", $_SESSION['conOfMysql']);
-        if(!$retval){
-            die("Could not get list: " . mysql_error());
-        }
-        $row = mysql_fetch_array($retval, MYSQL_ASSOC);
-        $maxpagenum = ($row['COUNT(*)'] - $row['COUNT(*)'] % $_SESSION['pageSize']) / $_SESSION['pageSize'] + (($row['COUNT(*)'] % $_SESSION['pageSize'] == 0)?0:1);
         echo '
         <div id="prevnext" style="text-align:center">';
         ?>
-        <form name="prevpost" action="blog.php" method="post">
-        <input type="hidden" name="pageNum" value=<?php echo $_SESSION['pageNum'] - 1; ?> />
-        </form>
-        <form name="nextpost" action="blog.php" method="post">
-        <input type="hidden" name="pageNum" value=<?php echo $_SESSION['pageNum'] + 1; ?> />
-        </form>
         <?php
         if($_SESSION['pageNum'] == 1){
+            // 不打印"上一页"和链接
         }else{
-            echo '<a href="javascript:document.prevpost.submit();">';
+            // 打印"上一页"和链接
+            echo '<a href="blog.php?contentState=list&pageNum=';
+            echo $_SESSION['pageNum'] - 1;
+            echo '&pageSize=';
+            echo $_SESSION['pageSize'];
+            echo '">';
         	echo '上一页</a>';
         }
         echo '-第';
         echo $_SESSION['pageNum'];
         echo '页-';
-        if($_SESSION['pageNum'] == $maxpagenum){
+        if($_SESSION['pageNum'] == $_SESSION['maxPageNum']){
+            // 不打印"上一页"和链接
         }else{
-            echo '<a href="javascript:document.nextpost.submit();">';
+            // 打印"上一页"和链接
+            echo '<a href="blog.php?contentState=list&pageNum=';
+            echo $_SESSION['pageNum'] + 1;
+            echo '&pageSize=';
+            echo $_SESSION['pageSize'];
+            echo '">';
             echo '下一页</a>';
         }
         echo '
         </div>
         ';
     }else{
-        echo '测试：' . $_POST['topic_index'];
+        // 请求的是主题页
+        echo '测试topic' . $_GET['topic_index'];
     }
 		?>
 		<div id="copyright">
