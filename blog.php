@@ -85,8 +85,21 @@ Develop by ZhuBrocadeSoar
         }else{
             // 不存在，设置默认值
             $_SESSION['pageNum'] = 1;
+            // pageSize
+            if(isset($_GET['pageSize'])){
+                // 存在
+                if($_GET['pageSize'] > 0){
+                    // 合法，赋值
+                    $_SESSION['pageSize'] = $_GET['pageSize'];
+                }else{
+                    // 不合法，设置默认值
+                    $_SESSION['pageSize'] = 5;
+                }
+            }else{
+                // 不存在，设置默认值
+                $_SESSION['pageSize'] = 5;
+            }
         }
-
     }else{
         // 请求主题页，检查相关参数
     }
