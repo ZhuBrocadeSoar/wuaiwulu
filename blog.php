@@ -23,6 +23,8 @@ Develop by ZhuBrocadeSoar
         $_SESSION['state'] = "1";
         $_SESSION['userState'] = "nameLess";
         $_SESSION['contentState'] = "list";
+        $_SESSION['pageNum'] = 1;
+        $_SESSION['pageSize'] = 5;
     }
     // 建立持久的数据库连接
     $_SESSION['conOfMysql'] = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
@@ -37,11 +39,8 @@ Develop by ZhuBrocadeSoar
     if($_SESSION['contentState'] == "list"){
         // 查询列表内容
         // 检查页码
-        if(!isset($_SESSION['pageNum'])){
-            $_SESSION['pageNum'] = 1;
-            $_SESSION['pageSize'] = 5;
-        }else{
-            // 已设置页码和显示数量, 从POST获取数据
+        if(isset($_POST['pageNum'])){
+            // 提交了数据
             $_SESSION['pageNum'] = $_POST['pageNum'];
         }
         $listOffset = ($_SESSION['pageNum'] - 1) * $_SESSION['pageSize'] + "0";
@@ -173,7 +172,6 @@ Develop by ZhuBrocadeSoar
         ';
     }else{
         echo '测试：' . $_POST['topic_index'];
-        $_SESSION['contentState'] = "list";
     }
 		?>
 		<div id="copyright">
