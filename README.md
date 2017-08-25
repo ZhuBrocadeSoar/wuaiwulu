@@ -61,4 +61,4 @@ mysql\>
 
 2017年8月25日10:54
 
-* 该用GET的时候还是得用GET，注意对GET到的数据做安全检查。
+* 该用GET的时候还是得用GET，注意对GET到的数据做安全检查。[问题参考](https://stackoverflow.com/questions/6833914/how-to-prevent-the-confirm-form-resubmission-dialog)
