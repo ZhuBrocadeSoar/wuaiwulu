@@ -31,6 +31,9 @@ Develop by ZhuBrocadeSoar
         die("Could not connect: " . mysql_error());
     }
     mysql_select_db("wuaiwuluDB");
+    if(isset($_POST['contentState'])){
+        $_SESSION['contentState'] = $_POST['contentState'];
+    }
     if($_SESSION['contentState'] == "list"){
         // 查询列表内容
         // 检查页码
@@ -99,9 +102,6 @@ Develop by ZhuBrocadeSoar
 		</div>
         -->
         <?php
-    if(isset($_POST['contentState'])){
-        $_SESSION['contentState'] = $_POST['contentState'];
-    }
     if($_SESSION['contentState'] == "list"){
         echo '
 		<div id="featured">
