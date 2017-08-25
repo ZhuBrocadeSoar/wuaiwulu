@@ -173,6 +173,7 @@ Develop by ZhuBrocadeSoar
         ';
     }else{
         echo '测试：' . $_POST['topic_index'];
+        $_SESSION['contentState'] = "list";
     }
 		?>
 		<div id="copyright">
