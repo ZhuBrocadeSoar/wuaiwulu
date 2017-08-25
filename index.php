@@ -23,6 +23,8 @@ Develop by ZhuBrocadeSoar
         $_SESSION['state'] = "1";
         $_SESSION['userState'] = "nameLess";
         $_SESSION['contentState'] = "list";
+        $_SESSION['pageNum'] = 1;
+        $_SESSION['pageSize'] = 5;
     }
 ?>
 
