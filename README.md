@@ -41,7 +41,7 @@ mysql\>
 
 2017-08-27-01:17 blog-list功能完全开发完毕，接下来开发blog-topic功能，可能需要创建评论列表等信息.
 
-2017-08-27-02:39 blog-topic 正在开发中，下一步继续实现 摘要的带边框显示等
+2017-08-27-02:39 blog-topic 正在开发中，下一步继续实现 摘要的带边框显示等:[简单边框css](http://www.w3school.com.cn/tiy/t.asp?f=csse_border-style)、[div](http://www.w3school.com.cn/tiy/t.asp?f=html_div_test)
 
 ### Ideas
 
