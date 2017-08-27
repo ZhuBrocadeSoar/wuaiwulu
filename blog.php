@@ -205,6 +205,7 @@ Develop by ZhuBrocadeSoar
         <div id="prevnext" style="text-align:center">';
         ?>
         <?php
+        echo '<form name="pageNumGet" action="blog.php" method="get">';echo "\n";
         if($_SESSION['pageNum'] == 1){
             // 不打印"上一页"和链接
         }else{
@@ -220,7 +221,7 @@ Develop by ZhuBrocadeSoar
         echo $_SESSION['pageNum'];
         echo '页-';
         // 下拉列表显示第几页，onchange事件
-        echo '<form name="pageNumGet" action="blog.php" method="get">';echo "\n";
+        //echo '<form name="pageNumGet" action="blog.php" method="get">';echo "\n";
         echo '<input type="hidden" name="contentState" value="list" />';echo "\n";
         echo '<input type="hidden" name="pageSize" value="' . $_SESSION['pageSize'] . '" />';echo "\n";
         echo '<select name="pageNum" onchange="javascript:document.pageNumGet.submit();">';echo "\n";
@@ -234,7 +235,7 @@ Develop by ZhuBrocadeSoar
             echo '</option>';echo "\n";
         }
         echo '</select>';echo "\n";
-        echo '</form>';echo "\n";
+        //echo '</form>';echo "\n";
         if($_SESSION['pageNum'] == $_SESSION['maxPageNum']){
             // 不打印"上一页"和链接
         }else{
@@ -246,6 +247,7 @@ Develop by ZhuBrocadeSoar
             echo '">';
             echo '下一页</a>';
         }
+        echo '</form>';echo "\n";
         echo '
         </div>
         ';
