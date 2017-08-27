@@ -224,7 +224,6 @@ Develop by ZhuBrocadeSoar
         // 下拉列表显示第几页，onchange事件
         //echo '<form name="pageNumGet" action="blog.php" method="get">';echo "\n";
         echo '<input type="hidden" name="contentState" value="list" />';echo "\n";
-        echo '<input type="hidden" name="pageSize" value="' . $_SESSION['pageSize'] . '" />';echo "\n";
         echo '<select name="pageNum" onchange="javascript:document.pageNumGet.submit();">';echo "\n";
         for($loopctl = 1; $loopctl <= $_SESSION['maxPageNum']; $loopctl++){
             echo '<option value="' . $loopctl . '" ';
@@ -236,6 +235,7 @@ Develop by ZhuBrocadeSoar
             echo '</option>';echo "\n";
         }
         echo '</select>';echo "\n";
+        echo '<input type="hidden" name="pageSize" value="' . $_SESSION['pageSize'] . '" />';echo "\n";
         //echo '</form>';echo "\n";
         if($_SESSION['pageNum'] == $_SESSION['maxPageNum']){
             // 不打印"上一页"和链接
