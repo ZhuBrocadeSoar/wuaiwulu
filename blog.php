@@ -212,6 +212,22 @@ Develop by ZhuBrocadeSoar
         echo '-第';
         echo $_SESSION['pageNum'];
         echo '页-';
+        // 下拉列表显示第几页，onchange事件
+        echo '<form name="pageNumGet" action="blog.php" method="get">';
+        echo '<input type="hidden" name="contentState" value="list" />';
+        echo '<input type="hidden" name="pageSize" value="' . $_SESSION['pageSize'] . '" />';
+        echo '<select name="pageNum" onchange="javascript:document.pageNumGet.submit();">';
+        for($loopctl = 1; $loopctl <= $_SESSION['maxPageNum']; $loopctl++){
+            echo '<option value="' . $loopctl . '" ';
+            if($loopctl == $_SESSION['pageNum']){
+                echo 'selected="selected" ';
+            }
+            echo '>';
+            echo '-第' . $_loopctl . '页-';
+            echo '</option>';
+        }
+        echo '</select>';
+        echo '</form>';
         if($_SESSION['pageNum'] == $_SESSION['maxPageNum']){
             // 不打印"上一页"和链接
         }else{
