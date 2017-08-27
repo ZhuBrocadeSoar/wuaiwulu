@@ -296,6 +296,12 @@ Develop by ZhuBrocadeSoar
         echo "\t\t";echo '<h2>' . $row['topic_title'] . '</h2>';echo "\n";
         echo "\t\t";echo '<span class="byline">' . $row['topic_date'] . ' ' . $row['topic_time'] . '</span>';echo "\n";
         echo "\t";echo '</div>';echo "\n";// featured
+        echo "\t";echo '<p style="border-style:solid">';
+        echo $row['topic_abstract'];
+        echo '</p>';echo "\n";
+        echo "\t";echo '<p>';
+        echo $row['topic_text'];
+        echo '</p>';echo "\n";
         echo '</div>';// class="title"
     }
 		?>
