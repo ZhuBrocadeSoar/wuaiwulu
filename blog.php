@@ -205,6 +205,7 @@ Develop by ZhuBrocadeSoar
         <div id="prevnext" style="text-align:center">';
         ?>
         <?php
+        // 打印页码控制器
         echo '<form name="pageNumGet" action="blog.php" method="get">';echo "\n";
         if($_SESSION['pageNum'] == 1){
             // 不打印"上一页"和链接
@@ -217,9 +218,9 @@ Develop by ZhuBrocadeSoar
             echo '">';
         	echo '上一页</a>';
         }
-        echo '-第';
-        echo $_SESSION['pageNum'];
-        echo '页-';
+        //echo '-第';
+        //echo $_SESSION['pageNum'];
+        //echo '页-';
         // 下拉列表显示第几页，onchange事件
         //echo '<form name="pageNumGet" action="blog.php" method="get">';echo "\n";
         echo '<input type="hidden" name="contentState" value="list" />';echo "\n";
