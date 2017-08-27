@@ -195,6 +195,7 @@ Develop by ZhuBrocadeSoar
         if(!$retval){
             die("Could not get list: " . mysql_error());
         }
+        $row = mysql_fetch_array($retval, MYSQL_ASSOC);
         echo '
 		<div id="featured">
 			<div class="title">
@@ -281,6 +282,12 @@ Develop by ZhuBrocadeSoar
     }else{
         // 请求的是主题页
         echo '测试topic' . $_GET['topic_index'];
+        // 查询数据库获得主题内容
+        $sql = "SELECT topic_date, topic_time, topic_text, topic_abstract, topic_comment_list, topic_updown_list, topic_modfiy_list, topic_title FROM topic WHERE topic_index=" . $_SESSION['topic_index'];
+        $retval = mysql_query($sql, $_SESSION['conOfMysql']);
+        if(!retval){
+            die('Could not get list' . mysql_error());
+        }
         // 打印框架
         echo '<!--打印框架 -->';echo "\n";
         echo '<div id="featured">';echo "\n";
