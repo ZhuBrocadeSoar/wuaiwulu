@@ -288,6 +288,7 @@ Develop by ZhuBrocadeSoar
         if(!retval){
             die('Could not get list' . mysql_error());
         }
+        $row = mysql_fetch_array($retval, MYSQL_ASSOC);
         // 打印框架
         echo '<!--打印框架 -->';echo "\n";
         echo '<div id="featured">';echo "\n";
