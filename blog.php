@@ -100,6 +100,13 @@ Develop by ZhuBrocadeSoar
                 $_SESSION['pageSize'] = 5;
             }
         }
+        // maxPageNum
+        $retval = mysql_query("SELECT COUNT(*) FROM topic", $_SESSION['conOfMysql']);
+        if(!$retval){
+            die("Could not get list: " . mysql_error());
+        }
+        $row = mysql_fetch_array($retval, MYSQL_ASSOC);
+        $_SESSION['maxPageNum'] = ($row['COUNT(*)'] - $row['COUNT(*)'] % $_SESSION['pageSize']) / $_SESSION['pageSize'] + (($row['COUNT(*)'] % $_SESSION['pageSize'] == 0)?0:1);
     }else{
         // 请求主题页，检查相关参数
     }
@@ -223,7 +230,7 @@ Develop by ZhuBrocadeSoar
                 echo 'selected="selected" ';
             }
             echo '>';
-            echo '-第' . $_loopctl . '页-';
+            echo '-第' . $loopctl . '页-';
             echo '</option>';echo "\n";
         }
         echo '</select>';echo "\n";
