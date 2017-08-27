@@ -39,6 +39,8 @@ mysql\>
 
 2017-08-25-22:00 已经改为GET传输模式。目前无BUG，下一步实现blog主题内容页。
 
+2017-08-27-01:17 blog-list功能完全开发完毕，接下来开发blog-topic功能，可能需要创建评论列表等信息.
+
 ### Ideas
 
 2017年8月24日01:14 
@@ -64,3 +66,5 @@ mysql\>
 2017年8月25日10:54
 
 * 该用GET的时候还是得用GET，注意对GET到的数据做安全检查。[问题参考](https://stackoverflow.com/questions/6833914/how-to-prevent-the-confirm-form-resubmission-dialog)
+
+2017年8月27日 02:05 为网站添加一个图标

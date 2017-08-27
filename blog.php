@@ -109,6 +109,31 @@ Develop by ZhuBrocadeSoar
         $_SESSION['maxPageNum'] = ($row['COUNT(*)'] - $row['COUNT(*)'] % $_SESSION['pageSize']) / $_SESSION['pageSize'] + (($row['COUNT(*)'] % $_SESSION['pageSize'] == 0)?0:1);
     }else{
         // 请求主题页，检查相关参数
+        // topic_index
+        if(isset($_GET['topic_index'])){
+            // 存在，检查合法性
+            // 查询数据库获知最大主题数
+            $retval = mysql_query("SELECT COUNT(*) FROM topic", $_SESSION['conOfMysql']);
+            if(!$retval){
+                die("Could not get list: " . mysql_error());
+            }
+            $row = mysql_fetch_array($retval, MYSQL_ASSOC);
+            $_SESSION['maxTopicIndex'] = $row['COUNT(*)'];
+            if($_GET['topic_index'] >= 1 && $_GET['topic_index'] <= $_SESSION['maxTopicIndex']){
+                // 合法，赋值
+                $_SESSION['topic_index'] = $_GET['topic_index'];
+            }else{
+                // 不合法，反馈错误信息
+                echo 'div class="title"';
+                echo '请求的主题不存在(Error Code:-1)';
+                echo '</div>';
+            }
+        }else{
+            // 不存在，Error
+            echo '<div class="title">';
+            echo '请求的主题不存在(Error Code:-2)';
+            echo '</div>';
+        }
     }
 ?>
 
@@ -121,6 +146,7 @@ Develop by ZhuBrocadeSoar
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="shortcut icon" href="images/favicon.ico" />
 
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
@@ -255,6 +281,14 @@ Develop by ZhuBrocadeSoar
     }else{
         // 请求的是主题页
         echo '测试topic' . $_GET['topic_index'];
+        // 打印框架
+        echo '<!--打印框架 -->';echo "\n";
+        echo '<div id="featured">';echo "\n";
+        echo "\t";echo '<div class="title">';echo "\n";
+        echo "\t\t";echo '<h2>' . $row['topic_title'] . '</h2>';echo "\n";
+        echo "\t\t";echo '<span class="byline">' . $row['topic_date'] . ' ' . $row['topic_time'] . '</span>';echo "\n";
+        echo "\t";echo '</div>';echo "\n";// featured
+        echo '</div>';// class="title"
     }
 		?>
 		<div id="copyright">
