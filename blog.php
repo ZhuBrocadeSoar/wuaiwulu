@@ -198,7 +198,7 @@ Develop by ZhuBrocadeSoar
         if(!$retval){
             die("Could not get list: " . mysql_error());
         }
-        $row = mysql_fetch_array($retval, MYSQL_ASSOC);
+        //$row = mysql_fetch_array($retval, MYSQL_ASSOC);
         echo '
 		<div id="featured">
 			<div class="title">
