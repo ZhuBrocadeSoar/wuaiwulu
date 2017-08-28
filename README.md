@@ -45,7 +45,7 @@ mysql\>
 
 2017-08-27-23:21 决定暂时不开发评论和赞踩系统，先实现markdown文章发表和正常显示系统.
 
-* 一个composer的绝佳的介绍:[Composer](www.phpcomposer.com)
+* 一个composer的绝佳的介绍:[Composer](www.phpcomposer.com), 貌似终于又解决了一次冲突，而且装好了markdown的class，composer
 
 ### Ideas
 
@@ -74,7 +74,4 @@ mysql\>
 * 该用GET的时候还是得用GET，注意对GET到的数据做安全检查。[问题参考](https://stackoverflow.com/questions/6833914/how-to-prevent-the-confirm-form-resubmission-dialog)
 
 2017年8月27日 02:05 为网站添加一个图标
-
-JUST TEST000
-JUST TEST001
 
