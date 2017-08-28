@@ -43,6 +43,10 @@ mysql\>
 
 2017-08-27-02:39 blog-topic 正在开发中，下一步继续实现 摘要的带边框显示等:[简单边框css](http://www.w3school.com.cn/tiy/t.asp?f=csse_border-style)、[div](http://www.w3school.com.cn/tiy/t.asp?f=html_div_test)
 
+2017-08-27-23:21 决定暂时不开发评论和赞踩系统，先实现markdown文章发表和正常显示系统.
+
+* 一个composer的绝佳的介绍:[Composer](www.phpcomposer.com)
+
 ### Ideas
 
 2017年8月24日01:14 
