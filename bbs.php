@@ -28,8 +28,8 @@ Develop by ZhuBrocadeSoar
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>吾爱吾庐</title>
-<meta name="keywords" content="index" />
+<title>吾爱吾庐-留言</title>
+<meta name="keywords" content="bbs" />
 <meta name="description" content="" />
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
@@ -50,13 +50,13 @@ Develop by ZhuBrocadeSoar
 		</div>
 		<div id="menu">
 			<ul>
-				<li class="current_page_item"><a href="http://brocadesoar.cn" accesskey="1" title="">主页</a></li>
+				<li><a href="http://brocadesoar.cn" accesskey="1" title="">主页</a></li>
 				<li><a href="blog.php" accesskey="2" title="">博客</a></li>
-                <li><a href="bbs.php" accesskey="3" title="">留言</a></li>
-				<li><a href="#" accesskey="4" title="">梯子</a></li>
-				<li><a href="#" accesskey="5" title="">传送</a></li>
-				<li><a href="#" accesskey="6" title="">关于</a></li>
-				<li><a href="#" accesskey="7" title="">登陆</a></li>
+				<li class="current_page_item"><a href="bbs.php" accesskey="3" title="">留言</a></li>
+                <li><a href="#" accesskey="4" title="">登陆</a></li>
+				<li><a href="#" accesskey="5" title="">梯子</a></li>
+                <li><a href="#" accesskey="6" title="">传送</a></li>
+                <li><a href="#" accesskey="7" title="">关于</a></li>
 			</ul>
 		</div>
 	</div>
