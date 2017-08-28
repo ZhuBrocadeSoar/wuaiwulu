@@ -87,7 +87,7 @@ Develop by ZhuBrocadeSoar
     if($_SESSION['contentState'] == "bbs"){
         // 请求的是留言版
         // 打印留言版内容
-        if($_SESSION['userState'] == "admin"){
+        if($_SESSION['userState'] == "nameless"/*测试用,正常状态必须是admin*/){
             // 打印管理员可见的Write按钮
             echo '<ul class="button">';echo "\n";
             echo "\t";echo '<li><a href="bbs.php?contentState=write">写文章</a></li>';echo "\n";
