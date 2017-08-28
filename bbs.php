@@ -91,7 +91,7 @@ Develop by ZhuBrocadeSoar
             // 打印管理员可见的Write按钮
             echo '<ul class="button">';echo "\n";
             echo "\t";echo '<li><a href="bbs.php?contentState=write">写文章</a></li>';echo "\n";
-            echo '<\ul>';echo "\n";
+            echo '</ul>';echo "\n";
         }
 
         // 打印留言条目
