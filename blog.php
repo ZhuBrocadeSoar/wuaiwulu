@@ -303,6 +303,8 @@ Develop by ZhuBrocadeSoar
         echo $row['topic_abstract'];
         echo '</p>';echo "\n";
         echo "\t";echo '<div id="topic" style="text-align:left">';
+        echo $row['topic_text'];
+        echo "\n";
         $topictextwithhtml = MarkdownExtra::defaultTransform($row['topic_text']);
         echo $topictextwithhtml;
         echo '</div>';echo "\n";
