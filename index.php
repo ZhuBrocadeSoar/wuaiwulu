@@ -71,10 +71,9 @@ Develop by ZhuBrocadeSoar
 			</div>
             <p>时间会匆匆流逝，其间发生的，美好的、不好的事物总归会在脑海中渐渐遗忘，尤其是像我一样，获得了遗忘的天赋。若是旅行，可以拿相机记录一些时刻，但大多数情况我没能把握那稍纵即逝的刹那。 写，是一种记录方式，是一种态度，是一种生活情趣，是一种营销手段。我感谢自己有写的欲望和写的勇气，激励自己要不断前进。</p>
 			<!--ul class="actions"-->
-            <ul class="button">
-            <!--ul-->
+            <!--ul class="button">
 				<li><a href="#" class="actions">Etiam posuere</a></li>
-			</ul>
+			</ul-->
 		</div>
         <!--
 		<div id="featured">
