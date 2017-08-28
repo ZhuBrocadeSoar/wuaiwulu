@@ -16,6 +16,7 @@ Develop by ZhuBrocadeSoar
 <?php
     // 自动加载
     require 'vendor/autoload.php';
+    use Michelf\Markdown;
     // session 初始化///////////////////////
     session_start();	
     if(isset($_SESSION['state'])){
@@ -302,7 +303,6 @@ Develop by ZhuBrocadeSoar
         echo $row['topic_abstract'];
         echo '</p>';echo "\n";
         echo "\t";echo '<p>';
-        use Michelf\Markdown;
         $topictextwithhtml = Markdown::defaultTransform($row['topic_text']);
         echo $topictextwithhtml;
         echo '</p>';echo "\n";
