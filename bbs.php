@@ -23,6 +23,28 @@ Develop by ZhuBrocadeSoar
         $_SESSION['state'] = "1";
         $_SESSION['userState'] = "nameless";
     }
+    // 检查数据库连接
+    $_SESSION['conOfMysql'] = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
+    // 检查连接
+    if(!$_SESSION['conOfMysql']){
+        die('Could not connect: ' . mysql_error());
+    }
+    mysql_select_db("wuaiwuluDB");
+
+    // 检查GET参数
+    if(isset($_GET['contentState'])){
+        // 存在，检验合法性
+        if($_GET['contentState'] == "bbs" || $_GET['contentState'] == "write"){
+            // 合法，赋值
+            $_SESSION['contentState'] = $_GET['contentState'];
+        }else{
+            // 不合法, 设置默认值
+            $_SESSION['contentState'] = "bbs";
+        }
+    }else{
+        // 不存在，设置默认值
+        $_SESSION['contentState'] = "bbs";
+    }
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -61,6 +83,29 @@ Develop by ZhuBrocadeSoar
 		</div>
 	</div>
 	<div id="main">
+<?php
+    if($_SESSION['contentState'] == "bbs"){
+        // 请求的是留言版
+        // 打印留言版内容
+        if($_SESSION['userState'] == "admin"){
+            // 打印管理员可见的Write按钮
+        }
+
+        // 打印留言条目
+
+        // 打印是否可以留言
+        if($_SESSION['userState'] == "nameless"){
+            // 无权留言,打印提示语
+            echo '<p>本站尊重您的发言权并且鼓励您对我和我的网站提供意见和建议, 但是出于交流效率和网络安全的考虑, 目前禁止尚未在本站<a href="#">注册</a>并<a href="#">登陆</a>的匿名用户在本留言版发言</p>';
+        }else{
+            // 有权留言,打印留言表单
+        }
+    }else{
+        // 请求的是写作版
+        // 打印写作表单,标题\摘要\内容,提交时访问数据库
+    }
+?>
+        <!--
 		<div id="banner">
             <img src="images/aPicWithoutMe.jpg" alt="" class="image-full" height="335" width="250" />
 		</div>
@@ -74,6 +119,7 @@ Develop by ZhuBrocadeSoar
 				<li><a href="#" class="button">Etiam posuere</a></li>
 			</ul>
 		</div>
+        -->
         <!--
 		<div id="featured">
 			<div class="title">
