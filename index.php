@@ -21,7 +21,7 @@ Develop by ZhuBrocadeSoar
     }else{
         // 不存在session，初始化
         $_SESSION['state'] = "1";
-        $_SESSION['userState'] = "nameLess";
+        $_SESSION['userState'] = "nameless";
     }
 ?>
 

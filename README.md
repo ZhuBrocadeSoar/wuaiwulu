@@ -25,6 +25,18 @@ mysql\> DESC topic;
 | topic\_modfiy\_list	| text				| YES	|		|			|					|	
 | topic\_title	        | tinytext          | NO    |       |           |                   |
 			
+mysql\> DESC user;
+
+| Field             | Type              | Null  | Key   | Default	| Extra             |
+|-------------------|-------------------|-------|-------|-----------|-------------------|
+| user\_index       | int(10) unsigned	| NO	| PRI	|           | auto\_increment	|
+| user\_date        | date              | NO    |       |           |                   |
+| user\_time        | time              | NO    |       |           |                   |
+| user\_username	| tinytext          | NO    |       |           |                   |
+| user\_password    | char(40)          | NO    |       |           |                   |
+| user\_email       | tinytext          | NO    |       |           |                   |
+| user\_group       | char(10)          | NO    |       |           |                   |
+
 mysql\> 
 		
 ### Codes Stats
@@ -46,6 +58,8 @@ mysql\>
 2017-08-27-23:21 决定暂时不开发评论和赞踩系统，先实现markdown文章发表和正常显示系统.
 
 * 一个composer的绝佳的介绍:[Composer](www.phpcomposer.com), 貌似终于又解决了一次冲突，而且装好了markdown的class，composer
+
+2017-08-28-02:44 创建了数据表user，接下来开发发表文章页和登陆页，“留言页”对于用户"soar"来说会在顶部有一个按钮，该按钮会提交一个GET参数contentState="write"，该参数当且仅当用户为"soar"时有效，该按钮提交目标是"留言页"本身，文件名字定为bbs.php,，缺省参数有: contentState=bbs (注意用户状态userState是SESSION缺省的，只通过POST改变，因此不列表在这里)，此外，注册用户和认证用户的留言功能和所有用户的留言查看功能将延后开发，先完成当下的任务。
 
 ### Ideas
 

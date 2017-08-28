@@ -25,6 +25,7 @@ Develop by ZhuBrocadeSoar
     }else{
         // 不存在session，初始化
         $_SESSION['state'] = "1";
+        $_SESSION['userState'] = "nameless";
     }
 
     // 检查数据库连接///////////////////////
