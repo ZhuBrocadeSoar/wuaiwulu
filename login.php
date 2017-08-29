@@ -72,13 +72,13 @@ Develop by ZhuBrocadeSoar
 		</div>
 		<div id="menu">
 			<ul>
-				<li class="current_page_item"><a href="http://brocadesoar.cn" accesskey="1" title="">主页</a></li>
+				<li><a href="http://brocadesoar.cn" accesskey="1" title="">主页</a></li>
 				<li><a href="blog.php" accesskey="2" title="">博客</a></li>
                 <li><a href="bbs.php" accesskey="3" title="">留言</a></li>
 				<li><a href="#" accesskey="4" title="">梯子</a></li>
 				<li><a href="#" accesskey="5" title="">传送</a></li>
 				<li><a href="#" accesskey="6" title="">关于</a></li>
-				<li><a href="login.php" accesskey="7" title="">登陆</a></li>
+				<li class="current_page_item"><a href="login.php" accesskey="7" title="">登陆</a></li>
 			</ul>
 		</div>
 	</div>
@@ -105,7 +105,7 @@ Develop by ZhuBrocadeSoar
 <p>  您也许早就厌烦了在各种大大小小的网站注册自己的账号，您不希望在您查阅某些资料的过程中被突如其来的注册、登陆请求打断思路、浪费时间和感情，很荣幸笔者持有这样的观点，同样认为这种用户体验极差的交互方式应该被取缔。</p>
 <p>  本站是一个个人博客网站，笔者本意不希望发生过多的尤其是生硬的用户交互操作，比如这种传统的注册、登陆操作。本站不是面向所有互联网用户的社交网站，不关心有多么大的用户群体和访问量，但是，笔者又迫切地希望得到熟人社交圈对笔者的批评和认可，迫切地希望通过本站实现价值的体现和产出。</p>
 <p>  因此笔者开通了对文章的评论、赞踩、回复功能，专门开通了一个留言版块，开通了一些福利资源的获取接口。同时为了您合法人道地使用、获取并为之提供保障，限于技术原因，开通了注册、登陆功能，并承诺您的注册、登陆信息将被安全地保护。</p>
-<p>  笔者认为无感知的用户识别技术是将来的发展趋势。据我所知，大多数平台都支持使用大型网络社交平台账号登陆或绑定其网站。笔者也希望在不久的将来能够在本站接入微信、QQ等大家喜闻乐见的社交账号，更希望互联网技术进一步发展无感知智能时代能早一点到来。</p>
+<p>  笔者认为无感知的用户识别技术是将来的发展趋势。据笔者所知，大多数平台都支持使用大型网络社交平台账号登陆或绑定其网站。笔者也希望在不久的将来能够在本站接入微信、QQ等大家喜闻乐见的社交账号，更希望互联网技术进一步发展无感知智能时代能早一点到来。</p>
 <p style="text-align:right">最后修改于 2017年8月29日03:01，soar</p>
             </div>
             <?php
