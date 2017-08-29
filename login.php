@@ -33,25 +33,25 @@ Develop by ZhuBrocadeSoar
 
     // 检查GET参数
     if(isset($_GET['contentState'])){
-        // 存在，检验合法性
-        if($_GET['contentState'] == "bbs" || $_GET['contentState'] == "write"){
+        // 存在，检查合法性
+        if($_GET['contentState'] == "login" || $_GET['contentState'] == "register"){
             // 合法，赋值
             $_SESSION['contentState'] = $_GET['contentState'];
         }else{
-            // 不合法, 设置默认值
-            $_SESSION['contentState'] = "bbs";
+            // 不合法，设置默认值
+            $_SESSION['contentState'] = "login";
         }
     }else{
         // 不存在，设置默认值
-        $_SESSION['contentState'] = "bbs";
+        $_SESSION['contentState'] = "login";
     }
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>吾爱吾庐-留言</title>
-<meta name="keywords" content="bbs" />
+<title>吾爱吾庐-登陆</title>
+<meta name="keywords" content="login" />
 <meta name="description" content="" />
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
@@ -72,43 +72,18 @@ Develop by ZhuBrocadeSoar
 		</div>
 		<div id="menu">
 			<ul>
-				<li><a href="http://brocadesoar.cn" accesskey="1" title="">主页</a></li>
+				<li class="current_page_item"><a href="http://brocadesoar.cn" accesskey="1" title="">主页</a></li>
 				<li><a href="blog.php" accesskey="2" title="">博客</a></li>
-				<li class="current_page_item"><a href="bbs.php" accesskey="3" title="">留言</a></li>
+                <li><a href="bbs.php" accesskey="3" title="">留言</a></li>
 				<li><a href="#" accesskey="4" title="">梯子</a></li>
-                <li><a href="#" accesskey="5" title="">传送</a></li>
-                <li><a href="#" accesskey="6" title="">关于</a></li>
-                <li><a href="login.php" accesskey="7" title="">登陆</a></li>
+				<li><a href="#" accesskey="5" title="">传送</a></li>
+				<li><a href="#" accesskey="6" title="">关于</a></li>
+				<li><a href="login.php" accesskey="7" title="">登陆</a></li>
 			</ul>
 		</div>
 	</div>
 	<div id="main">
-<?php
-    if($_SESSION['contentState'] == "bbs"){
-        // 请求的是留言版
-        // 打印留言版内容
-        if($_SESSION['userState'] == "nameless"/*测试用,正常状态必须是admin*/){
-            // 打印管理员可见的Write按钮
-            echo '<ul class="button">';echo "\n";
-            echo "\t";echo '<li><a href="bbs.php?contentState=write">写文章</a></li>';echo "\n";
-            echo '</ul>';echo "\n";
-        }
-
-        // 打印留言条目
-
-        // 打印是否可以留言
-        if($_SESSION['userState'] == "nameless"){
-            // 无权留言,打印提示语
-            echo '<p>本站尊重您的发言权并且鼓励您对我和我的网站提供意见和建议, 但是出于交流效率和网络安全的考虑, 目前禁止尚未在本站<a href="#">注册</a>并<a href="#">登陆</a>的匿名用户在本留言版发言</p>';
-        }else{
-            // 有权留言,打印留言表单
-        }
-    }else{
-        // 请求的是写作版
-        // 打印写作表单,标题\摘要\内容,提交时访问数据库
-    }
-?>
-        <!--
+<!--
 		<div id="banner">
             <img src="images/aPicWithoutMe.jpg" alt="" class="image-full" height="335" width="250" />
 		</div>
@@ -118,17 +93,38 @@ Develop by ZhuBrocadeSoar
 				<span class="byline">照片沉淀回忆，或喜或忧，你找不到我，时光的那一头，角落里我的一角背影</span>
 			</div>
             <p>时间会匆匆流逝，其间发生的，美好的、不好的事物总归会在脑海中渐渐遗忘，尤其是像我一样，获得了遗忘的天赋。若是旅行，可以拿相机记录一些时刻，但大多数情况我没能把握那稍纵即逝的刹那。 写，是一种记录方式，是一种态度，是一种生活情趣，是一种营销手段。我感谢自己有写的欲望和写的勇气，激励自己要不断前进。</p>
-			<ul class="actions">
-				<li><a href="#" class="button">Etiam posuere</a></li>
-			</ul>
-		</div>
-        -->
-        <!--
+				<li><a href="#" class="actions">Etiam posuere</a></li>
+-->
 		<div id="featured">
 			<div class="title">
-				<h2>欢迎来到我的世界</h2>
-				<span class="byline">随笔、日记、转载，生活、技术、扯淡</span>
+				<h2>《注册、登陆用户须知》</h2>
+				<span class="byline">致力于您读过并读懂本须知</span>
 			</div>
+            <div id="topic" style="text-align:left">
+<p>  本须知不是由精炼的过分准确并且拗口的专业术语组成的，但这并不意味着您可以无视本须知的内容和精神，本站默认您执行“注册”、“登陆”操作意为着您读过并读懂本须知。</p>
+<p>  您也许早就厌烦了在各种大大小小的网站注册自己的账号，您不希望在您查阅某些资料的过程中被突如其来的注册、登陆请求打断思路、浪费时间和感情，很荣幸笔者持有这样的观点，同样认为这种用户体验极差的交互方式应该被取缔。</p>
+<p>  本站是一个个人博客网站，笔者本意不希望发生过多的尤其是生硬的用户交互操作，比如这种传统的注册、登陆操作。本站不是面向所有互联网用户的社交网站，不关心有多么大的用户群体和访问量，但是，笔者又迫切地希望得到熟人社交圈对笔者的批评和认可，迫切地希望通过本站实现价值的体现和产出。</p>
+<p>  因此笔者开通了对文章的评论、赞踩、回复功能，专门开通了一个留言版块，开通了一些福利资源的获取接口。同时为了您合法人道地使用、获取并为之提供保障，限于技术原因，开通了注册、登陆功能，并承诺您的注册、登陆信息将被安全地保护。</p>
+<p>  笔者认为无感知的用户识别技术是将来的发展趋势。据我所知，大多数平台都支持使用大型网络社交平台账号登陆或绑定其网站。笔者也希望在不久的将来能够在本站接入微信、QQ等大家喜闻乐见的社交账号，更希望互联网技术进一步发展无感知智能时代能早一点到来。</p>
+<p style="text-align:right">最后修改于 2017年8月29日03:01，soar</p>
+            </div>
+            <?php
+    if($_SESSION['userState'] != "nameless"){
+        // 已经登陆，打印欢迎信息
+        // 打印“注册账号需要退出登陆”
+        // 打印退出登陆按钮
+    }else{
+        // 尚未登陆
+        if($_SESSION['contentState'] == "login"){
+            // 请求的是登陆页
+            // 打印登陆表单
+        }else{
+            // 请求的是注册页
+            // 打印注册表单
+        }
+    }
+            ?>
+        <!--
 			<ul class="style1">
 				<li class="first">
 					<p class="date"><a href="#">Jan<b>05</b></a></p>
@@ -151,8 +147,8 @@ Develop by ZhuBrocadeSoar
 					<p><a href="#">Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie. Donec leo, vivamus fermentum nibh in augue praesent congue rutrum.</a></p>
 				</li>
 			</ul>
-		</div>
         -->
+		</div>
 		<div id="copyright">
 			<span><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可。</span>
 			<span>Template Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.|浙ICP备17027825号-1</span>

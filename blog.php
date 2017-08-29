@@ -172,7 +172,7 @@ Develop by ZhuBrocadeSoar
 				<li><a href="#" accesskey="4" title="">梯子</a></li>
 				<li><a href="#" accesskey="5" title="">传送</a></li>
 				<li><a href="#" accesskey="6" title="">关于</a></li>
-				<li><a href="#" accesskey="7" title="">登陆</a></li>
+				<li><a href="login.php" accesskey="7" title="">登陆</a></li>
 			</ul>
 		</div>
 	</div>
