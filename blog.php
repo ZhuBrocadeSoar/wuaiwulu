@@ -29,13 +29,12 @@ Develop by ZhuBrocadeSoar
     }
 
     // 检查数据库连接///////////////////////
-    // 建立持久的数据库连接
-    $_SESSION['conOfMysql'] = mysqli_connect("localhost", "nitmaker_cn", "nitmaker.cn");
+    // 建立数据库连接
+    $_SESSION['conOfMysql'] = mysqli_connect("localhost", "nitmaker_cn", "nitmaker.cn", "wuaiwuluDB");
     // 检查连接
-    if(!$_SESSION['conOfMysql']){
-        die("Could not connect: " . mysqli_error());
+    if(mysqli_connect_errno()){
+        die("Could not connect: " . mysqli_connect_error());
     }
-    mysqli_select_db("wuaiwuluDB");
 
     // 检查GET参数//////////////////////////
     // contentState
@@ -73,9 +72,9 @@ Develop by ZhuBrocadeSoar
                 // 不存在，设置默认值
                 $_SESSION['pageSize'] = 5;
             }
-            $retval = mysqli_query("SELECT COUNT(*) FROM topic", $_SESSION['conOfMysql']);
+            $retval = mysqli_query($_SESSION['conOfMysql'], "SELECT COUNT(*) FROM topic");
             if(!$retval){
-                die("Could not get list: " . mysqli_error());
+                die("Could not get list: " . mysqli_connect_error());
             }
             $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
             $_SESSION['maxPageNum'] = ($row['COUNT(*)'] - $row['COUNT(*)'] % $_SESSION['pageSize']) / $_SESSION['pageSize'] + (($row['COUNT(*)'] % $_SESSION['pageSize'] == 0)?0:1);
@@ -105,9 +104,9 @@ Develop by ZhuBrocadeSoar
             }
         }
         // maxPageNum
-        $retval = mysqli_query("SELECT COUNT(*) FROM topic", $_SESSION['conOfMysql']);
+        $retval = mysqli_query($_SESSION['conOfMysql'], "SELECT COUNT(*) FROM topic");
         if(!$retval){
-            die("Could not get list: " . mysqli_error());
+            die("Could not get list: " . mysqli_connect_error());
         }
         $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
         $_SESSION['maxPageNum'] = ($row['COUNT(*)'] - $row['COUNT(*)'] % $_SESSION['pageSize']) / $_SESSION['pageSize'] + (($row['COUNT(*)'] % $_SESSION['pageSize'] == 0)?0:1);
@@ -117,9 +116,9 @@ Develop by ZhuBrocadeSoar
         if(isset($_GET['topic_index'])){
             // 存在，检查合法性
             // 查询数据库获知最大主题数
-            $retval = mysqli_query("SELECT COUNT(*) FROM topic", $_SESSION['conOfMysql']);
+            $retval = mysqli_query($_SESSION['conOfMysql'], "SELECT COUNT(*) FROM topic");
             if(!$retval){
-                die("Could not get list: " . mysqli_error());
+                die("Could not get list: " . mysqli_connect_error());
             }
             $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
             $_SESSION['maxTopicIndex'] = $row['COUNT(*)'];
@@ -198,11 +197,10 @@ Develop by ZhuBrocadeSoar
         $listOffset = ($_SESSION['pageNum'] - 1) * $_SESSION['pageSize'] + "0";
         $listLimit = $_SESSION['pageSize'] + "0";
     	$sql = "SELECT topic_index, topic_date, topic_time, topic_abstract, topic_title FROM topic ORDER BY topic_index DESC LIMIT " . $listOffset . ", " . $listLimit;
-        $retval = mysqli_query($sql, $_SESSION['conOfMysql']);
+        $retval = mysqli_query($_SESSION['conOfMysql'], $sql);
         if(!$retval){
-            die("Could not get list: " . mysqli_error());
+            die("Could not get list: " . mysqli_connect_error());
         }
-        //$row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
         echo '
 		<div id="featured">
 			<div class="title">
@@ -291,9 +289,9 @@ Develop by ZhuBrocadeSoar
         echo '测试topic' . $_GET['topic_index'];
         // 查询数据库获得主题内容
         $sql = "SELECT topic_date, topic_time, topic_text, topic_abstract, topic_comment_list, topic_updown_list, topic_modfiy_list, topic_title FROM topic WHERE topic_index=" . $_SESSION['topic_index'];
-        $retval = mysqli_query($sql, $_SESSION['conOfMysql']);
+        $retval = mysqli_query($_SESSION['conOfMysql'], $sql);
         if(!retval){
-            die('Could not get list' . mysqli_error());
+            die('Could not get list' . mysqli_connect_error());
         }
         $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
         // 打印框架
