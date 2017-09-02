@@ -119,13 +119,14 @@ Develop by ZhuBrocadeSoar
             // 请求的是登陆页
             // 打印登陆表单
             echo "\t\t\t";echo '<div id="loginpage">';echo "\n";
+            echo "\t\t\t\t";echo '<a name="loginform"></a>';echo "\n";
             echo "\t\t\t\t";echo '<form action="login.php" method="post">';echo "\n";
             echo "\t\t\t\t\t";echo '<ul>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<li>用户名:</li>';echo "\n";
+            echo "\t\t\t\t\t\t";echo '<li>用户名</li>';echo "\n";
             echo "\t\t\t\t\t\t";echo '<li><input type="text" name="userName" /></li>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<li>密码:</li>';echo "\n";
+            echo "\t\t\t\t\t\t";echo '<li>密码</li>';echo "\n";
             echo "\t\t\t\t\t\t";echo '<li><input type="password" name="password" /></li>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<li>点击<input type="submit" name="submit" value="登陆" />或<a href="login.php?contentState=register">注册</a></li>';echo "\n";
+            echo "\t\t\t\t\t\t";echo '<li>点击<input type="submit" name="submit" value="登陆" />或<a href="login.php?contentState=register#loginform">注册</a></li>';echo "\n";
             echo "\t\t\t\t\t";echo '</ul>';echo "\n";
             echo "\t\t\t\t";echo '</form>';echo "\n";
             echo "\t\t\t";echo '</div>';echo "\n";
