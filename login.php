@@ -117,11 +117,20 @@ Develop by ZhuBrocadeSoar
         if($_SESSION['contentState'] == "login"){
             // 请求的是登陆页
             // 打印登陆表单
+            $sitekey = "6LdefSIUAAAAAFYRe4CK0RAgJfDSraIvsshhuhUL";
+            $secretKey = "6LdefSIUAAAAAG0V8Yz_mNS-bVX_XJBaOzir825f";
             echo "\t\t\t";echo '<div id="loginpage">';echo "\n";
             echo "\t\t\t\t";echo '<a name="loginform"></a>';echo "\n";
             // 检查是否提交了数据，如果提交了post数据则提示登陆信息有误
             if(isset($_POST['submit'])){
                 // 提交了数据，查询数据库并验证
+                $recaptcha = new \ReCaptcha\ReCaptcha($secretKey);
+                $resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
+                if($resp->isSuccess()){
+                    echo "验证码通过";
+                }else{
+                    echo "验证失败";
+                }
             }
             echo "\t\t\t\t";echo '<form action="login.php#loginform" method="post">';echo "\n";
             echo "\t\t\t\t\t";echo '<ul>';echo "\n";
@@ -129,6 +138,8 @@ Develop by ZhuBrocadeSoar
             echo "\t\t\t\t\t\t";echo '<li><input type="text" name="userName" /></li>';echo "\n";
             echo "\t\t\t\t\t\t";echo '<li>密码</li>';echo "\n";
             echo "\t\t\t\t\t\t";echo '<li><input type="password" name="password" /></li>';echo "\n";
+            echo "\t\t\t\t\t\t";echo '<div class="g-recaptcha" data-sitekey="' . $siteKey . '" ></div>';echo "\n";
+            echo "\t\t\t\t\t\t";echo '<script src="https://www.google.com/recaptcha/api.js" async defer></script>';echo "\n";
             echo "\t\t\t\t\t\t";echo '<li>点击<input type="submit" name="submit" value="登陆" />或<a href="login.php?contentState=register">注册</a></li>';echo "\n";
             echo "\t\t\t\t\t";echo '</ul>';echo "\n";
             echo "\t\t\t\t";echo '</form>';echo "\n";
