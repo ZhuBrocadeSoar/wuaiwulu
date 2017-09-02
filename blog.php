@@ -30,7 +30,7 @@ Develop by ZhuBrocadeSoar
 
     // 检查数据库连接///////////////////////
     // 建立持久的数据库连接
-    $_SESSION['conOfMysql'] = mysqli_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
+    $_SESSION['conOfMysql'] = mysqli_connect("localhost", "nitmaker_cn", "nitmaker.cn");
     // 检查连接
     if(!$_SESSION['conOfMysql']){
         die("Could not connect: " . mysqli_error());
