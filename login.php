@@ -120,6 +120,10 @@ Develop by ZhuBrocadeSoar
             // 打印登陆表单
             echo "\t\t\t";echo '<div id="loginpage">';echo "\n";
             echo "\t\t\t\t";echo '<a name="loginform"></a>';echo "\n";
+            // 检查是否提交了数据，如果提交了post数据则提示登陆信息有误
+            if(isset($_POST['submit'])){
+                // 提交了数据，查询数据库并验证
+            }
             echo "\t\t\t\t";echo '<form action="login.php#loginform" method="post">';echo "\n";
             echo "\t\t\t\t\t";echo '<ul>';echo "\n";
             echo "\t\t\t\t\t\t";echo '<li>用户名</li>';echo "\n";
