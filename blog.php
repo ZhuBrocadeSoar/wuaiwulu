@@ -30,12 +30,12 @@ Develop by ZhuBrocadeSoar
 
     // 检查数据库连接///////////////////////
     // 建立持久的数据库连接
-    $_SESSION['conOfMysql'] = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
+    $_SESSION['conOfMysql'] = mysqli_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
     // 检查连接
     if(!$_SESSION['conOfMysql']){
-        die("Could not connect: " . mysql_error());
+        die("Could not connect: " . mysqli_error());
     }
-    mysql_select_db("wuaiwuluDB");
+    mysqli_select_db("wuaiwuluDB");
 
     // 检查GET参数//////////////////////////
     // contentState
@@ -73,11 +73,11 @@ Develop by ZhuBrocadeSoar
                 // 不存在，设置默认值
                 $_SESSION['pageSize'] = 5;
             }
-            $retval = mysql_query("SELECT COUNT(*) FROM topic", $_SESSION['conOfMysql']);
+            $retval = mysqli_query("SELECT COUNT(*) FROM topic", $_SESSION['conOfMysql']);
             if(!$retval){
-                die("Could not get list: " . mysql_error());
+                die("Could not get list: " . mysqli_error());
             }
-            $row = mysql_fetch_array($retval, MYSQL_ASSOC);
+            $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
             $_SESSION['maxPageNum'] = ($row['COUNT(*)'] - $row['COUNT(*)'] % $_SESSION['pageSize']) / $_SESSION['pageSize'] + (($row['COUNT(*)'] % $_SESSION['pageSize'] == 0)?0:1);
             if($_GET['pageNum'] > 0 && $_GET['pageNum'] <= $_SESSION['maxPageNum']/*合法*/){
                 // 值合法，赋值
@@ -105,11 +105,11 @@ Develop by ZhuBrocadeSoar
             }
         }
         // maxPageNum
-        $retval = mysql_query("SELECT COUNT(*) FROM topic", $_SESSION['conOfMysql']);
+        $retval = mysqli_query("SELECT COUNT(*) FROM topic", $_SESSION['conOfMysql']);
         if(!$retval){
-            die("Could not get list: " . mysql_error());
+            die("Could not get list: " . mysqli_error());
         }
-        $row = mysql_fetch_array($retval, MYSQL_ASSOC);
+        $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
         $_SESSION['maxPageNum'] = ($row['COUNT(*)'] - $row['COUNT(*)'] % $_SESSION['pageSize']) / $_SESSION['pageSize'] + (($row['COUNT(*)'] % $_SESSION['pageSize'] == 0)?0:1);
     }else{
         // 请求主题页，检查相关参数
@@ -117,11 +117,11 @@ Develop by ZhuBrocadeSoar
         if(isset($_GET['topic_index'])){
             // 存在，检查合法性
             // 查询数据库获知最大主题数
-            $retval = mysql_query("SELECT COUNT(*) FROM topic", $_SESSION['conOfMysql']);
+            $retval = mysqli_query("SELECT COUNT(*) FROM topic", $_SESSION['conOfMysql']);
             if(!$retval){
-                die("Could not get list: " . mysql_error());
+                die("Could not get list: " . mysqli_error());
             }
-            $row = mysql_fetch_array($retval, MYSQL_ASSOC);
+            $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
             $_SESSION['maxTopicIndex'] = $row['COUNT(*)'];
             if($_GET['topic_index'] >= 1 && $_GET['topic_index'] <= $_SESSION['maxTopicIndex']){
                 // 合法，赋值
@@ -198,11 +198,11 @@ Develop by ZhuBrocadeSoar
         $listOffset = ($_SESSION['pageNum'] - 1) * $_SESSION['pageSize'] + "0";
         $listLimit = $_SESSION['pageSize'] + "0";
     	$sql = "SELECT topic_index, topic_date, topic_time, topic_abstract, topic_title FROM topic ORDER BY topic_index DESC LIMIT " . $listOffset . ", " . $listLimit;
-        $retval = mysql_query($sql, $_SESSION['conOfMysql']);
+        $retval = mysqli_query($sql, $_SESSION['conOfMysql']);
         if(!$retval){
-            die("Could not get list: " . mysql_error());
+            die("Could not get list: " . mysqli_error());
         }
-        //$row = mysql_fetch_array($retval, MYSQL_ASSOC);
+        //$row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
         echo '
 		<div id="featured">
 			<div class="title">
@@ -223,7 +223,7 @@ Develop by ZhuBrocadeSoar
             "10" => "Oct",
             "11" => "Nov",
             "12" => "Dec");
-        while($row = mysql_fetch_array($retval, MYSQL_ASSOC)){
+        while($row = mysqli_fetch_array($retval, MYSQLI_ASSOC)){
             $date_arr=explode('-', $row['topic_date']);
             echo '
                 <li>
@@ -291,11 +291,11 @@ Develop by ZhuBrocadeSoar
         echo '测试topic' . $_GET['topic_index'];
         // 查询数据库获得主题内容
         $sql = "SELECT topic_date, topic_time, topic_text, topic_abstract, topic_comment_list, topic_updown_list, topic_modfiy_list, topic_title FROM topic WHERE topic_index=" . $_SESSION['topic_index'];
-        $retval = mysql_query($sql, $_SESSION['conOfMysql']);
+        $retval = mysqli_query($sql, $_SESSION['conOfMysql']);
         if(!retval){
-            die('Could not get list' . mysql_error());
+            die('Could not get list' . mysqli_error());
         }
-        $row = mysql_fetch_array($retval, MYSQL_ASSOC);
+        $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
         // 打印框架
         echo '<!--打印框架 -->';echo "\n";
         echo '<div id="featured">';echo "\n";
