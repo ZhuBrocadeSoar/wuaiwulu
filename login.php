@@ -24,12 +24,11 @@ Develop by ZhuBrocadeSoar
         $_SESSION['userState'] = "nameless";
     }
     // 检查数据库连接
-    $_SESSION['conOfMysql'] = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
+    $_SESSION['conOfMysql'] = mysqli_connect("localhost", "nitmaker_cn", "nitmaker.cn", "wuaiwuluDB");
     // 检查连接
     if(!$_SESSION['conOfMysql']){
-        die('Could not connect: ' . mysql_error());
+        die('Could not connect: ' . mysqli_connect_error());
     }
-    mysql_select_db("wuaiwuluDB");
 
     // 检查GET参数
     if(isset($_GET['contentState'])){
