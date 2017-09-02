@@ -98,7 +98,7 @@ Develop by ZhuBrocadeSoar
         // 打印是否可以留言
         if($_SESSION['userState'] == "nameless"){
             // 无权留言,打印提示语
-            echo '<p>本站尊重您的发言权并且鼓励您对我和我的网站提供意见和建议, 但是出于交流效率和网络安全的考虑, 目前禁止尚未在本站<a href="#">注册</a>并<a href="#">登陆</a>的匿名用户在本留言版发言</p>';
+            echo '<p>本站尊重您的发言权并且鼓励您对我和我的网站提供意见和建议, 但是出于交流效率和网络安全的考虑, 目前禁止尚未在本站<a href="login.php?contentState=register">注册</a>并<a href="login.php">登陆</a>的匿名用户在本留言版发言</p>';
         }else{
             // 有权留言,打印留言表单
         }
