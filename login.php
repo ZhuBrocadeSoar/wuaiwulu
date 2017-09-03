@@ -15,6 +15,8 @@ Develop by ZhuBrocadeSoar
 <!-- session初始化 -->
 <?php
     require 'vendor/autoload.php';
+    require_once dirname(dirname(__FILE__)) . 'gt3-php-sdk/lib/class.geetestlib.php';
+    require_once dirname(dirname(__FILE__)) . 'gt3-php-sdk/config/config.php';
     session_start();
     if(isset($_SESSION['state'])){
         // 已存在session
@@ -58,6 +60,39 @@ Develop by ZhuBrocadeSoar
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="shortcut icon" href="images/favicon.ico" />
+<style>
+        body {
+            margin: 50px 0;
+            text-align: center;
+        }
+        .inp {
+            border: 1px solid gray;
+            padding: 0 10px;
+            width: 200px;
+            height: 30px;
+            font-size: 18px;
+        }
+        .btn {
+            border: 1px solid gray;
+            width: 100px;
+            height: 30px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        #embed-captcha {
+            width: 300px;
+            margin: 0 auto;
+        }
+        .show {
+            display: block;
+        }
+        .hide {
+            display: none;
+        }
+        #notice {
+            color: red;
+        }
+</style>
 
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
@@ -119,10 +154,36 @@ Develop by ZhuBrocadeSoar
         if($_SESSION['contentState'] == "login"){
             // 请求的是登陆页
             // 打印登陆表单
-            $sitekey = "6LdefSIUAAAAAFYRe4CK0RAgJfDSraIvsshhuhUL";
-            $secretKey = "6LdefSIUAAAAAG0V8Yz_mNS-bVX_XJBaOzir825f";
             echo "\t\t\t";echo '<div id="loginpage">';echo "\n";
             echo "\t\t\t\t";echo '<a name="loginform"></a>';echo "\n";
+            // 验证验证码
+            $GtSdk = new GeetestLib(CAPTCHA_ID, PRIVATE_KEY);
+            $data = array(
+                "user_id" => $_SESSION['user_id'], #网站用户id
+                "client_type" => "web", #
+                "ip_address" => "127.0.0.1" #请在此处传输用户请求验证时携带的IP
+            );
+            // 验证码服务
+            if($_SESSION['gtserver'] == 1){
+                // 服务正常
+                $result = $GtSdk->success_validate($_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode'], $data);
+                if($result){
+                    // 验证通过，检查用户名和密码匹配
+                    echo "验证码通过";
+                }else{
+                    // 验证失败
+                    echo "验证码验证失败";
+                }
+            }else{
+                // 服务宕机，failback模式
+                if($_GtSdk->fail_validate($_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode'], $data)){
+                    // 验证通过，检查用户和密码匹配
+                    echo "验证码通过";
+                }else{
+                    // 验证失败
+                    echo "验证码验证失败";
+                }
+            }
             // 检查是否提交了数据，如果提交了post数据则提示登陆信息有误
             if(isset($_POST['submit']) && isset($_POST['g-recaptcha-response'])){
                 // 提交了数据，查询数据库并验证
@@ -138,17 +199,72 @@ Develop by ZhuBrocadeSoar
                     }
                 }
             }
-            echo "\t\t\t\t";echo '<form action="login.php#loginform" method="post">';echo "\n";
-            echo "\t\t\t\t\t";echo '<ul>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<li>用户名</li>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<li><input type="text" name="userName" /></li>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<li>密码</li>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<li><input type="password" name="password" /></li>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<div class="g-recaptcha" data-sitekey="' . $sitekey . '" ></div>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<script src="api.js?hl=zh" async defer></script>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<li>点击<input type="submit" name="submit" value="登陆" />或<a href="login.php?contentState=register">注册</a></li>';echo "\n";
-            echo "\t\t\t\t\t";echo '</ul>';echo "\n";
+            echo "\t\t\t\t";echo '<form class="popup" action="login.php#loginform" method="post">';echo "\n";
+            echo "\t\t\t\t\t";echo '<p>';echo "\n";
+            echo "\t\t\t\t\t\t";echo '<label for="username2">用户名:</label>';echo "\n";
+            echo "\t\t\t\t\t\t";echo '<input class="inp" id="username2" type="text" />';echo "\n";
+            echo "\t\t\t\t\t";echo '</p>';echo "\n";
+            echo '<br />';echo "\n";
+            echo "\t\t\t\t\t";echo '<p>';echo "\n";
+            echo "\t\t\t\t\t\t";echo '<label for="password2">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>';echo "\n";
+            echo "\t\t\t\t\t\t";echo '<input class="inp" id="password2" type="password" />';echo "\n";
+            echo "\t\t\t\t\t";echo '</p>';echo "\n";
+            echo "\t\t\t\t\t";echo '<div id="embed-captcha"></div>';echo "\n";
+            echo "\t\t\t\t\t";echo '<p id="wait" class="show">正在加载验证码......</p>';echo "\n";
+            echo "\t\t\t\t\t";echo '<p id="notice" class="hide">请先完成验证</p>';echo "\n";
+            echo '<br />';echo "\n";
+            echo "\t\t\t\t\t";echo '<input class="btn" id="embed-submit" type = "submit" value="登陆">';echo "\n";
+            echo "\t\t\t\t\t";echo '<p>或前往<a href="login.php?contentState=register">注册</a></p>';echo "\n";
             echo "\t\t\t\t";echo '</form>';echo "\n";
+            echo "\t\t\t\t";echo '<script src="https://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>';echo "\n";
+            echo "\t\t\t\t";echo '<script src="gt3-php-sdk/static/gt.js"></script>';echo "\n";
+
+    var handlerEmbed = function (captchaObj) {
+        $("#embed-submit").click(function (e) {
+            var validate = captchaObj.getValidate();
+            if (!validate) {
+                $("#notice")[0].className = "show";
+                setTimeout(function () {
+                    $("#notice")[0].className = "hide";
+                }, 2000);
+                e.preventDefault();
+            }
+        });
+        // 
+将验证码加到id为captcha的元素里，同时会有三个input的值：geetest_challenge, 
+geetest_validate, geetest_seccode
+        captchaObj.appendTo("#embed-captcha");
+        captchaObj.onReady(function () {
+            $("#wait")[0].className = "hide";
+        });
+        // 
+更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html
+    };
+    $.ajax({
+        // 获取id，challenge，success（是否启用failback）
+        url: "../web/StartCaptchaServlet.php?t=" + (new Date()).getTime(), 
+// 加随机数防止缓存
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            // 使用initGeetest接口
+            // 参数1：配置参数
+            // 
+参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
+            initGeetest({
+                gt: data.gt,
+                challenge: data.challenge,
+                new_captcha: data.new_captcha,
+                product: "embed", // 
+产品形式，包括：float，embed，popup。注意只对PC版验证码有效
+                offline: !data.success // 
+表示用户后台检测极验服务器是否宕机，一般不需要关注
+                // 
+更多配置参数请参见：http://www.geetest.com/install/sections/idx-client-sdk.html#config
+            }, handlerEmbed);
+        }
+    });
             echo "\t\t\t";echo '</div>';echo "\n";
         }else{
             // 请求的是注册页
