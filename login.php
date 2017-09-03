@@ -132,7 +132,9 @@ Develop by ZhuBrocadeSoar
                     echo "验证码通过";
                 }else{
                     echo "验证失败";echo '<br />';
-                    echo $resp->getErrorCodes();
+                    foreach($resp->getErrorCodes() as $code){
+                        echo $code . '<br />';
+                    }
                 }
             }
             echo "\t\t\t\t";echo '<form action="login.php#loginform" method="post">';echo "\n";
