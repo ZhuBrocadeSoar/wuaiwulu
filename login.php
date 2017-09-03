@@ -140,7 +140,7 @@ Develop by ZhuBrocadeSoar
             echo "\t\t\t\t\t\t";echo '<li>密码</li>';echo "\n";
             echo "\t\t\t\t\t\t";echo '<li><input type="password" name="password" /></li>';echo "\n";
             echo "\t\t\t\t\t\t";echo '<div class="g-recaptcha" data-sitekey="' . $sitekey . '" ></div>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>';echo "\n";
+            echo "\t\t\t\t\t\t";echo '<script src="https://www.google.com/recaptcha/api.js?hl=zh" async defer></script>';echo "\n";
             echo "\t\t\t\t\t\t";echo '<li>点击<input type="submit" name="submit" value="登陆" />或<a href="login.php?contentState=register">注册</a></li>';echo "\n";
             echo "\t\t\t\t\t";echo '</ul>';echo "\n";
             echo "\t\t\t\t";echo '</form>';echo "\n";
