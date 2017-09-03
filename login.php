@@ -151,8 +151,7 @@ Develop by ZhuBrocadeSoar
             // 打印登陆表单
             echo "\t\t\t";echo '<div id="loginpage">';echo "\n";
             echo "\t\t\t\t";echo '<a name="loginform"></a>';echo "\n";
-            // 从验证码服务端返回?
-            echo "\t\t\t\t";echo '<form class="popup" action="gt3-php-sdk/web/VerifyLoginServlet.php" method="post">';echo "\n";
+            echo "\t\t\t\t";echo '<form class="popup" action="login.php?contentState=captchaed" method="post">';echo "\n";
             echo "\t\t\t\t\t";echo '<p>';echo "\n";
             echo "\t\t\t\t\t\t";echo '<label for="username2">用户名:</label>';echo "\n";
             echo "\t\t\t\t\t\t";echo '<input class="inp" id="username2" type="text" />';echo "\n";
