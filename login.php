@@ -125,7 +125,7 @@ Develop by ZhuBrocadeSoar
             // 检查是否提交了数据，如果提交了post数据则提示登陆信息有误
             if(isset($_POST['submit'])){
                 // 提交了数据，查询数据库并验证
-                echo "提交了数据"
+                echo "提交了数据";
                 $recaptcha = new \ReCaptcha\ReCaptcha($secretKey);
                 $resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
                 if($resp->isSuccess()){
