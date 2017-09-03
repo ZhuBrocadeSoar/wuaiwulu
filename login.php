@@ -206,7 +206,7 @@ Develop by ZhuBrocadeSoar
             echo "\t\t\t\t\t";echo '</p>';echo "\n";
             echo '<br />';echo "\n";
             echo "\t\t\t\t\t";echo '<p>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<label for="password2">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>';echo "\n";
+            echo "\t\t\t\t\t\t";echo '<label for="password2">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>';echo "\n";
             echo "\t\t\t\t\t\t";echo '<input class="inp" id="password2" type="password" />';echo "\n";
             echo "\t\t\t\t\t";echo '</p>';echo "\n";
             echo "\t\t\t\t\t";echo '<div id="embed-captcha"></div>';echo "\n";
@@ -243,7 +243,7 @@ geetest_validate, geetest_seccode
     };
     $.ajax({
         // 获取id，challenge，success（是否启用failback）
-        url: "../web/StartCaptchaServlet.php?t=" + (new Date()).getTime(), 
+        url: "login.php?t=" + (new Date()).getTime(), 
 // 加随机数防止缓存
         type: "get",
         dataType: "json",
