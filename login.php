@@ -60,35 +60,6 @@ Develop by ZhuBrocadeSoar
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="shortcut icon" href="images/favicon.ico" />
-<style>
-        .inp {
-            border: 1px solid gray;
-            padding: 0 10px;
-            width: 200px;
-            height: 30px;
-            font-size: 18px;
-        }
-        .btn {
-            border: 1px solid gray;
-            width: 100px;
-            height: 30px;
-            font-size: 18px;
-            cursor: pointer;
-        }
-        #embed-captcha {
-            width: 300px;
-            margin: 0 auto;
-        }
-        .show {
-            display: block;
-        }
-        .hide {
-            display: none;
-        }
-        #notice {
-            color: red;
-        }
-</style>
 
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
