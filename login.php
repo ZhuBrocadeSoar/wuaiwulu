@@ -123,7 +123,7 @@ Develop by ZhuBrocadeSoar
             echo "\t\t\t";echo '<div id="loginpage">';echo "\n";
             echo "\t\t\t\t";echo '<a name="loginform"></a>';echo "\n";
             // 检查是否提交了数据，如果提交了post数据则提示登陆信息有误
-            if(isset($_POST['submit'])){
+            if(isset($_POST['submit']) && isset($_POST['g-recaptcha-response'])){
                 // 提交了数据，查询数据库并验证
                 echo "提交了数据";
                 $recaptcha = new \ReCaptcha\ReCaptcha($secretKey);
