@@ -126,7 +126,7 @@ Develop by ZhuBrocadeSoar
             if(isset($_POST['submit']) && isset($_POST['g-recaptcha-response'])){
                 // 提交了数据，查询数据库并验证
                 echo "提交了数据";
-                $recaptcha = new \ReCaptcha\ReCaptcha($secretKey);
+                $recaptcha = new \ReCaptcha\ReCaptcha($secretKey, new \ReCaptcha\RequestMethod\CurlPost());
                 $resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
                 if($resp->isSuccess()){
                     echo "验证码通过";
