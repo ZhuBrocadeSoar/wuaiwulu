@@ -74,7 +74,7 @@ Develop by ZhuBrocadeSoar
             }
             $retval = mysqli_query($_SESSION['conOfMysql'], "SELECT COUNT(*) FROM topic");
             if(!$retval){
-                die("Could not get list: " . mysqli_connect_error());
+                die("Could not get list: " . mysqli_error());
             }
             $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
             $_SESSION['maxPageNum'] = ($row['COUNT(*)'] - $row['COUNT(*)'] % $_SESSION['pageSize']) / $_SESSION['pageSize'] + (($row['COUNT(*)'] % $_SESSION['pageSize'] == 0)?0:1);
@@ -106,7 +106,7 @@ Develop by ZhuBrocadeSoar
         // maxPageNum
         $retval = mysqli_query($_SESSION['conOfMysql'], "SELECT COUNT(*) FROM topic");
         if(!$retval){
-            die("Could not get list: " . mysqli_connect_error());
+            die("Could not get list: " . mysqli_error());
         }
         $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
         $_SESSION['maxPageNum'] = ($row['COUNT(*)'] - $row['COUNT(*)'] % $_SESSION['pageSize']) / $_SESSION['pageSize'] + (($row['COUNT(*)'] % $_SESSION['pageSize'] == 0)?0:1);
@@ -118,7 +118,7 @@ Develop by ZhuBrocadeSoar
             // 查询数据库获知最大主题数
             $retval = mysqli_query($_SESSION['conOfMysql'], "SELECT COUNT(*) FROM topic");
             if(!$retval){
-                die("Could not get list: " . mysqli_connect_error());
+                die("Could not get list: " . mysqli_error());
             }
             $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
             $_SESSION['maxTopicIndex'] = $row['COUNT(*)'];
@@ -199,7 +199,7 @@ Develop by ZhuBrocadeSoar
     	$sql = "SELECT topic_index, topic_date, topic_time, topic_abstract, topic_title FROM topic ORDER BY topic_index DESC LIMIT " . $listOffset . ", " . $listLimit;
         $retval = mysqli_query($_SESSION['conOfMysql'], $sql);
         if(!$retval){
-            die("Could not get list: " . mysqli_connect_error());
+            die("Could not get list: " . mysqli_error());
         }
         echo '
 		<div id="featured">
@@ -291,7 +291,7 @@ Develop by ZhuBrocadeSoar
         $sql = "SELECT topic_date, topic_time, topic_text, topic_abstract, topic_comment_list, topic_updown_list, topic_modfiy_list, topic_title FROM topic WHERE topic_index=" . $_SESSION['topic_index'];
         $retval = mysqli_query($_SESSION['conOfMysql'], $sql);
         if(!retval){
-            die('Could not get list' . mysqli_connect_error());
+            die('Could not get list' . mysqli_error());
         }
         $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
         // 打印框架

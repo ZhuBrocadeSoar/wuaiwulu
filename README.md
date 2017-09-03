@@ -37,8 +37,14 @@ mysql\> DESC user;
 | user\_email       | tinytext          | NO    |       |           |                   |
 | user\_group       | char(10)          | NO    |       |           |                   |
 
-mysql\> 
-		
+mysql\> DESC gt3idkey;
+
+| Field           | Type     | Null | Key | Default | Extra             |
+|-----------------|----------|------|-----|---------|-------------------|
+| gt3idkey\_index | int(11)  | NO   | PRI | NULL    | auto\_increment	|
+| gt3idkey\_id    | char(32) | NO   |     | NULL    |                   |
+| gt3idkey\_key   | char(32) | NO   |     | NULL    |                   |
+
 ### Codes Stats
 	
 2017-08-24-00:12 创建了数据表 topic ，接下来的任务是调试代码尝试数据库的连接，并在数据表中（通过终端）插入合适的测试用数据，插入数据后尝试实现动态读取列表中某页的5条博文并按照预定的样式显示到前端，并且实现翻页按钮。在动态列表内容页实现后，尝试动态主题内容页的获取和显示，再之后尝试markdown编辑器的嵌入和使用来完成网站初步的博客功能。在这之间或之后，需要实现用户登陆功能使显示内容按用户的不同而不同。在之后开发用户注册和邮箱验证功能，在之后实现管理员审核、管理用户的功能。
@@ -68,6 +74,8 @@ mysql\>
 2017-08-29-03:31 尚未开始login表单的开发，可能需要想好一个样式、找到一个好的验证码系统，今天累了，明天在写吧
 
 2017-09-02-16:29 在设计login表单的时候中途转出去做了个ssl的认证，在腾讯云有个一个brocadesoar.cn的域名认证并安装启用了，另外一个www.brocadesoar.cn的域名没有启用，但是这里可能有点问题，工信部备案中的网站主页地址是www.brocadesoar.cn实际上这个域名会被重写为brocadesoar.cn，目前我们的网站也是安全的拉。
+
+2017-09-03-14:10 安装了gt3-php-sdk，准备接入极验验证，新加了一个数据表用于存储gt3的id和key
 
 ### Ideas
 
