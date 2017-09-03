@@ -52,6 +52,7 @@ Develop by ZhuBrocadeSoar
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>吾爱吾庐-登陆</title>
 <meta name="keywords" content="login" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="" />
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
