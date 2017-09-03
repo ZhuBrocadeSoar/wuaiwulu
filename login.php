@@ -231,8 +231,7 @@ echo '
                 e.preventDefault();
             }
         });
-        // 将验证码加到id为captcha的元素里，同时会有三个input的值：geetest_challenge, 
-geetest_validate, geetest_seccode
+        // 将验证码加到id为captcha的元素里，同时会有三个input的值：geetest_challenge, geetest_validate, geetest_seccode
         captchaObj.appendTo("#embed-captcha");
         captchaObj.onReady(function () {
             $("#wait")[0].className = "hide";
