@@ -120,7 +120,6 @@ Develop by ZhuBrocadeSoar
             // 打印登陆表单
             $sitekey = "6LdefSIUAAAAAFYRe4CK0RAgJfDSraIvsshhuhUL";
             $secretKey = "6LdefSIUAAAAAG0V8Yz_mNS-bVX_XJBaOzir825f";
-            echo $sitekey;
             echo "\t\t\t";echo '<div id="loginpage">';echo "\n";
             echo "\t\t\t\t";echo '<a name="loginform"></a>';echo "\n";
             // 检查是否提交了数据，如果提交了post数据则提示登陆信息有误
