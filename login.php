@@ -148,6 +148,9 @@ Develop by ZhuBrocadeSoar
         // 尚未登陆
         if($_SESSION['contentState'] == "login"){
             // 请求的是登陆页
+            echo $_SERVER['REMOTE_ADDR'];echo "\n";
+            echo $_SERVER['REMOTE_PORT'];echo "\n";
+            echo $_SERVER['REMOTE_HOST'];echo "\n";
             // 打印登陆表单
             echo "\t\t\t";echo '<div id="loginpage">';echo "\n";
             echo "\t\t\t\t";echo '<a name="loginform"></a>';echo "\n";
