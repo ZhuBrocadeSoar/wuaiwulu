@@ -14,6 +14,7 @@ Develop by ZhuBrocadeSoar
 
 <!-- session初始化 -->
 <?php
+    require 'vendor/autoload.php';
     session_start();
     if(isset($_SESSION['state'])){
         // 已存在session
