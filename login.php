@@ -218,7 +218,8 @@ Develop by ZhuBrocadeSoar
             echo "\t\t\t\t";echo '</form>';echo "\n";
             echo "\t\t\t\t";echo '<script src="https://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>';echo "\n";
             echo "\t\t\t\t";echo '<script src="gt3-php-sdk/static/gt.js"></script>';echo "\n";
-
+echo '
+<script>
     var handlerEmbed = function (captchaObj) {
         $("#embed-submit").click(function (e) {
             var validate = captchaObj.getValidate();
@@ -265,6 +266,8 @@ geetest_validate, geetest_seccode
             }, handlerEmbed);
         }
     });
+</script>
+';
             echo "\t\t\t";echo '</div>';echo "\n";
         }else{
             // 请求的是注册页
