@@ -13,8 +13,8 @@ if(mysqli_connect_errno()){
 if($result = mysqli_query($conOfMysql, "SELECT * FROM gt3idkey WHERE gt3idkey_index = 1")){
     // 读取成功
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    define("CAPTCHA_ID", '"' . $row['gt3idkey_id'] . '"');
-    define("PRIVATE_KEY", '"' . $row['gt3idkey_key'] . '"');
+    define("CAPTCHA_ID", $row['gt3idkey_id']);
+    define("PRIVATE_KEY", $row['gt3idkey_key']);
 }else{
     // 读取失败
     printf("Query Faild: %s", mysqli_error());
