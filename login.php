@@ -141,8 +141,9 @@ Develop by ZhuBrocadeSoar
             echo "\t\t\t\t\t";echo '<input class="btn" id="embed-submit" type = "submit" value="登陆">';echo "\n";
             echo "\t\t\t\t\t";echo '<p>或前往<a href="login.php?contentState=register">注册</a></p>';echo "\n";
             echo "\t\t\t\t";echo '</form>';echo "\n";
-            echo "\t\t\t\t";echo '<script src="https://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>';echo "\n";
-            echo "\t\t\t\t";echo '<script src="gt3-php-sdk/static/gt.js"></script>';echo "\n";
+            echo "\t\t\t\t";echo '<div style="text-align:center">';echo "\n";
+            echo "\t\t\t\t\t";echo '<script src="https://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>';echo "\n";
+            echo "\t\t\t\t\t";echo '<script src="gt3-php-sdk/static/gt.js"></script>';echo "\n";
 echo '
 <script>
     var handlerEmbed = function (captchaObj) {
@@ -185,6 +186,7 @@ echo '
     });
 </script>
 ';
+            echo "\t\t\t\t";echo '</div>';echo "\n";
             echo "\t\t\t";echo '</div>';echo "\n";
         }else{
             // 请求的是注册页
