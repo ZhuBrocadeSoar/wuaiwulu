@@ -16,18 +16,18 @@ $data = array(
     );
 
 
-if ($_SESSION['gtserver'] == 1) {   //服务器正常
-    $result = $GtSdk->success_validate($_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode'], $data);
-    if ($result) {
-        $_SESSION['captcha'] = "success";
-    } else{
-        $_SESSION['captcha'] = "fail";
-    }
-}else{  //服务器宕机,走failback模式
-    if ($GtSdk->fail_validate($_POST['geetest_challenge'],$_POST['geetest_validate'],$_POST['geetest_seccode'])) {
-        $_SESSION['captcha'] = "success";
-    }else{
-        $_SESSION['captcha'] = "fail";
-    }
-}
-?>
+//if ($_SESSION['gtserver'] == 1) {   //服务器正常
+//    $result = $GtSdk->success_validate($_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode'], $data);
+//    if ($result) {
+//        $_SESSION['captcha'] = "success";
+//    } else{
+//        $_SESSION['captcha'] = "fail";
+//    }
+//}else{  //服务器宕机,走failback模式
+//    if ($GtSdk->fail_validate($_POST['geetest_challenge'],$_POST['geetest_validate'],$_POST['geetest_seccode'])) {
+//        $_SESSION['captcha'] = "success";
+//    }else{
+//        $_SESSION['captcha'] = "fail";
+//    }
+//}
+//?>
