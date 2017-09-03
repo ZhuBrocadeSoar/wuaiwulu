@@ -156,7 +156,7 @@ Develop by ZhuBrocadeSoar
             echo "\t\t\t\t";echo '<a name="loginform"></a>';echo "\n";
             echo "\t\t\t\t";echo '<form class="popup" action="login.php" method="post">';echo "\n";
             echo "\t\t\t\t\t";echo '<p>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<label for="username2">用户名:</label>';echo "\n";
+            echo "\t\t\t\t\t\t";echo '<label for="username">用户名:</label>';echo "\n";
             if(isset($_POST['username'])){
                 $defaultusername = htmlspecialchars($_POST['username']);
             }else{
@@ -168,20 +168,20 @@ Develop by ZhuBrocadeSoar
                     x.value = "";
 }
 </script>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<input class="inp" id="username2" type="text" name="username" value="' . $defaultusername . '" onfocus="resetusername()" />';echo "\n";
+            echo "\t\t\t\t\t\t";echo '<input class="inp" id="username" type="text" value="' . $defaultusername . '" onfocus="resetusername()" />';echo "\n";
             echo "\t\t\t\t\t";echo '</p>';echo "\n";
             echo '<br />';echo "\n";
             echo "\t\t\t\t\t";echo '<p>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<label for="password2">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<input class="inp" id="password2" type="password" name="password" />';echo "\n";
+            echo "\t\t\t\t\t\t";echo '<label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>';echo "\n";
+            echo "\t\t\t\t\t\t";echo '<input class="inp" id="password" type="password"/>';echo "\n";
             echo "\t\t\t\t\t";echo '</p>';echo "\n";
-            echo "\t\t\t\t\t";echo '<div id="embed-captcha"></div>';echo "\n";
+            //echo "\t\t\t\t\t";echo '<div id="embed-captcha"></div>';echo "\n";
             echo "\t\t\t\t\t";echo '<p id="wait" class="show">正在加载验证码......</p>';echo "\n";
             echo "\t\t\t\t\t";echo '<p id="notice" class="hide">请先完成验证</p>';echo "\n";
             // 检查是否通过提交按钮提交了POST数据然后做用户名和密码的登陆检查
             //
             echo '<br />';echo "\n";
-            echo "\t\t\t\t\t";echo '<input class="btn" id="embed-submit" type = "submit" value="登陆">';echo "\n";
+            echo "\t\t\t\t\t";echo '<input class="btn" id="btn" type = "submit" value="登陆">';echo "\n";
             echo "\t\t\t\t\t";echo '<p>或前往<a href="login.php?contentState=register">注册</a></p>';echo "\n";
             echo "\t\t\t\t";echo '</form>';echo "\n";
             echo "\t\t\t\t";echo '<script src="https://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>';echo "\n";
