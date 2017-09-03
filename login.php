@@ -176,7 +176,6 @@ Develop by ZhuBrocadeSoar
             echo "\t\t\t\t\t";echo '<p id="wait" class="show">正在加载验证码......</p>';echo "\n";
             echo "\t\t\t\t\t";echo '<p id="notice" class="hide">请先完成验证</p>';echo "\n";
             // 检查是否通过提交按钮提交了POST数据然后做用户名和密码的登陆检查
-            echo $_SESSION['gtserver'];echo "\n";
             if(isset($_SESSION['captcha'])){
                 // 提交了用户名
                 // 转化字符串后检查数据库
