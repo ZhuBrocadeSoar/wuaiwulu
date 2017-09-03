@@ -176,7 +176,7 @@ Develop by ZhuBrocadeSoar
                 }
             }else{
                 // 服务宕机，failback模式
-                if($_GtSdk->fail_validate($_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode'], $data)){
+                if($GtSdk->fail_validate($_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode'], $data)){
                     // 验证通过，检查用户和密码匹配
                     echo "验证码通过";
                 }else{
