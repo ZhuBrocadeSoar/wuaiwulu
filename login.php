@@ -15,8 +15,8 @@ Develop by ZhuBrocadeSoar
 <!-- session初始化 -->
 <?php
     require 'vendor/autoload.php';
-    require_once dirname(dirname(__FILE__)) . 'gt3-php-sdk/lib/class.geetestlib.php';
-    require_once dirname(dirname(__FILE__)) . 'gt3-php-sdk/config/config.php';
+    require_once dirname(dirname(__FILE__)) . 'wuaiwulu/gt3-php-sdk/lib/class.geetestlib.php';
+    require_once dirname(dirname(__FILE__)) . 'wuaiwulu/gt3-php-sdk/config/config.php';
     session_start();
     if(isset($_SESSION['state'])){
         // 已存在session
