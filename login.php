@@ -121,7 +121,7 @@ Develop by ZhuBrocadeSoar
         if($_SESSION['contentState'] == "login"){
             // 请求的是登陆页
             // 打印登陆表单
-            echo "\t\t\t";echo '<div id="loginpage" style="margin:center">';echo "\n";
+            echo "\t\t\t";echo '<div id="loginpage">';echo "\n";
             echo "\t\t\t\t";echo '<a name="loginform"></a>';echo "\n";
             // 从验证码服务端返回?
             echo "\t\t\t\t";echo '<form class="popup" action="gt3-php-sdk/web/VerifyLoginServlet.php" method="post">';echo "\n";
