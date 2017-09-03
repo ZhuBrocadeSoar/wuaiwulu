@@ -54,17 +54,13 @@ Develop by ZhuBrocadeSoar
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>吾爱吾庐-登陆</title>
 <meta name="keywords" content="login" />
-<!--meta name="viewport" content="width=device-width, initial-scale=0.3"-->
+<meta name="viewport" content="width=device-width, initial-scale=0.3">
 <meta name="description" content="" />
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="shortcut icon" href="images/favicon.ico" />
 <style>
-        body {
-            margin: 50px 0;
-            text-align: center;
-        }
         .inp {
             border: 1px solid gray;
             padding: 0 10px;
