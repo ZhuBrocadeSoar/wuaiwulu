@@ -26,34 +26,6 @@ Develop by ZhuBrocadeSoar
         $_SESSION['state'] = "1";
         $_SESSION['userState'] = "nameless";
     }
-            // 验证验证码
-            $GtSdk = new GeetestLib(CAPTCHA_ID, PRIVATE_KEY);
-            $data = array(
-                "user_id" => $_SESSION['user_id'], #网站用户id
-                "client_type" => "web", #
-                "ip_address" => "127.0.0.1" #请在此处传输用户请求验证时携带的IP
-            );
-            // 验证码服务
-            if($_SESSION['gtserver'] == 1){
-                // 服务正常
-                $result = $GtSdk->success_validate($_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode'], $data);
-                if($result){
-                    // 验证通过，检查用户名和密码匹配
-                    echo "验证码通过";
-                }else{
-                    // 验证失败
-                    echo "验证码验证失败";
-                }
-            }else{
-                // 服务宕机，failback模式
-                if($GtSdk->fail_validate($_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode'], $data)){
-                    // 验证通过，检查用户和密码匹配
-                    echo "验证码通过";
-                }else{
-                    // 验证失败
-                    echo "验证码验证失败";
-                }
-            }
     // 检查数据库连接
     $_SESSION['conOfMysql'] = mysqli_connect("localhost", "nitmaker_cn", "nitmaker.cn", "wuaiwuluDB");
     // 检查连接
@@ -184,23 +156,8 @@ Develop by ZhuBrocadeSoar
             // 打印登陆表单
             echo "\t\t\t";echo '<div id="loginpage">';echo "\n";
             echo "\t\t\t\t";echo '<a name="loginform"></a>';echo "\n";
-            
-            // 检查是否提交了数据，如果提交了post数据则提示登陆信息有误
-            if(isset($_POST['submit']) && isset($_POST['g-recaptcha-response'])){
-                // 提交了数据，查询数据库并验证
-                echo "提交了数据";
-                $recaptcha = new \ReCaptcha\ReCaptcha($secretKey, new \ReCaptcha\RequestMethod\CurlPost());
-                $resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
-                if($resp->isSuccess()){
-                    echo "验证码通过";
-                }else{
-                    echo "验证失败";echo '<br />';
-                    foreach($resp->getErrorCodes() as $code){
-                        echo $code . '<br />';
-                    }
-                }
-            }
-            echo "\t\t\t\t";echo '<form class="popup" action="login.php#loginform" method="post">';echo "\n";
+            // 从验证码服务端返回?
+            echo "\t\t\t\t";echo '<form class="popup" action="gt3-php-sdk/web/VerifyLoginServlet.php" method="post">';echo "\n";
             echo "\t\t\t\t\t";echo '<p>';echo "\n";
             echo "\t\t\t\t\t\t";echo '<label for="username2">用户名:</label>';echo "\n";
             echo "\t\t\t\t\t\t";echo '<input class="inp" id="username2" type="text" />';echo "\n";
@@ -241,7 +198,7 @@ echo '
     };
     $.ajax({
         // 获取id，challenge，success（是否启用failback）
-        url: "login.php?t=" + (new Date()).getTime(), // 加随机数防止缓存
+        url: "gt3-php-sdk/web/StartCaptchaServlet.php?t=" + (new Date()).getTime(), // 加随机数防止缓存
         type: "get",
         dataType: "json",
         success: function (data) {
