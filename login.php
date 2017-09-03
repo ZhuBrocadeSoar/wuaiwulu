@@ -220,7 +220,8 @@ echo '
                 gt: data.gt,
                 challenge: data.challenge,
                 new_captcha: data.new_captcha,
-                product: "embed", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
+                product: "bind", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
+                width: "200px",
                 offline: !data.success // 表示用户后台检测极验服务器是否宕机，一般不需要关注
                 // 更多配置参数请参见：http://www.geetest.com/install/sections/idx-client-sdk.html#config
             }, handlerEmbed);
