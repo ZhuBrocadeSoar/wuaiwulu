@@ -131,7 +131,8 @@ Develop by ZhuBrocadeSoar
                 if($resp->isSuccess()){
                     echo "验证码通过";
                 }else{
-                    echo "验证失败";
+                    echo "验证失败";echo '<br />';
+                    echo $resp->getErrorCodes();
                 }
             }
             echo "\t\t\t\t";echo '<form action="login.php#loginform" method="post">';echo "\n";
