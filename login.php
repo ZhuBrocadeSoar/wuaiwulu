@@ -194,12 +194,12 @@ Develop by ZhuBrocadeSoar
                     x.value = "";
 }
 </script>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<input class="inp" id="username" type="text" value="' . $defaultusername . '" onfocus="resetusername()" />';echo "\n";
+            echo "\t\t\t\t\t\t";echo '<input class="inp" id="usernameI" type="text" value="' . $defaultusername . '" onfocus="resetusername()" />';echo "\n";
             echo "\t\t\t\t\t";echo '</p>';echo "\n";
             echo '<br />';echo "\n";
             echo "\t\t\t\t\t";echo '<p>';echo "\n";
             echo "\t\t\t\t\t\t";echo '<label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>';echo "\n";
-            echo "\t\t\t\t\t\t";echo '<input class="inp" id="password" type="password"/>';echo "\n";
+            echo "\t\t\t\t\t\t";echo '<input class="inp" id="passwordI" type="password"/>';echo "\n";
             echo "\t\t\t\t\t";echo '</p>';echo "\n";
             echo "\t\t\t\t\t";echo '<div id="btn" class="btn">登陆</div>';echo "\n";
             //echo "\t\t\t\t\t";echo '<p id="wait" class="show">正在加载验证码......</p>';echo "\n";
@@ -222,7 +222,34 @@ Develop by ZhuBrocadeSoar
             if(!result){
                 return alert("请完成验证");
             }
+            $.ajax({
+                url: "login.php?#loginform",
+                type: "post",
+                dataType: "json",
+                data: {
+                    username: $("#usernameI").val(),
+                    password: $("#passwordI").val(),
+                    captchastate: $("#captchastateI").val(),
+                    geetest_challenge: result.geetest_challenge,
+                    geetest_validate: result.geetest_validate,
+                    geetest_seccode: result.geetest_seccode
+                },
+                success: function (data){
+                    if(data.status === "success"){
+                        setTimeout(function(){
+                            $("#captchastateI").val("success");
+                        }, 1500);
+                    }else if(data.status === "fail"){
+                        setTimeout(function(){
+                            $("#captchastateI").val("fail");
+                        }, 1500);
+                    }
+                }
+            });
         });
+        $("#btn").click(function(){
+            captchaObj.verify();
+        })
     };
 
     $.ajax({
