@@ -214,7 +214,7 @@ Develop by ZhuBrocadeSoar
             echo "\t\t\t\t";echo '<script src="gt3-php-sdk/static/gt.js"></script>';echo "\n";
             echo '
 <script>
-    var handlr = function (captchaObj){
+    var handler = function (captchaObj){
         captchaObj.onReady(function(){
             $("#wait").hide();
         }).onSuccess(function(){
@@ -238,7 +238,7 @@ Develop by ZhuBrocadeSoar
                 timeout: "5000",
                 product: "bind",
                 width: "200px"
-            }, hander);
+            }, handler);
         }
     });
 </script>';echo "\n";
