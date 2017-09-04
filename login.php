@@ -68,30 +68,47 @@ Develop by ZhuBrocadeSoar
             height: 30px;
             font-size: 18px;
         }
+
         .btn {
-            border: 1px solid gray;
+            display: inline-block;
+            box-sizing: border-box;
+            border: 1px solid #cccccc;
+            border-radius: 2px;
             width: 100px;
-            height: 30px;
-            font-size: 18px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            color: #666;
             cursor: pointer;
+            background: while linear-gradient(180deg, #ffffff 0%, #f3f3f3 100%);
         }
+
+        .btn:hover {
+            background: while linear-gradient(0deg, #ffffff 0%, #f3f3f3 100%);
+        }
+
         #embed-captcha {
             width: 300px;
             margin: 0 auto;
         }
+
         .show {
             display: block;
         }
+
         .hide {
             display: none;
         }
+
         #notice {
             color: red;
         }
+
         #captcha {
             width: 200px;
             display: inline-block;
         }
+
         #wait {
             text-align: left;
             color: #666;
