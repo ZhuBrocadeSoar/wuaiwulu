@@ -175,7 +175,7 @@ Develop by ZhuBrocadeSoar
             echo "\t\t\t\t\t\t";echo '<label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>';echo "\n";
             echo "\t\t\t\t\t\t";echo '<input class="inp" id="password" type="password"/>';echo "\n";
             echo "\t\t\t\t\t";echo '</p>';echo "\n";
-            echo "\t\t\t\t\t";echo '<div id="bind-captcha"></div>';echo "\n";
+            //echo "\t\t\t\t\t";echo '<div id="bind-captcha"></div>';echo "\n";
             echo "\t\t\t\t\t";echo '<p id="wait" class="show">正在加载验证码......</p>';echo "\n";
             echo "\t\t\t\t\t";echo '<p id="notice" class="hide">请先完成验证</p>';echo "\n";
             // 检查是否通过提交按钮提交了POST数据然后做用户名和密码的登陆检查
