@@ -212,49 +212,79 @@ Develop by ZhuBrocadeSoar
             echo "\t\t\t\t";echo '</form>';echo "\n";
             echo "\t\t\t\t";echo '<script src="https://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>';echo "\n";
             echo "\t\t\t\t";echo '<script src="gt3-php-sdk/static/gt.js"></script>';echo "\n";
-echo '
+            echo '
 <script>
-    var handlerEmbed = function (captchaObj) {
-        $("#embed-submit").click(function (e) {
-            var validate = captchaObj.getValidate();
-            if (!validate) {
-                $("#notice")[0].className = "show";
-                setTimeout(function () {
-                    $("#notice")[0].className = "hide";
-                }, 2000);
-                e.preventDefault();
+    var handlr = function (captchaObj){
+        captchaObj.onReady(function(){
+            $("#wait").hide();
+        }).onSuccess(function(){
+            var result = captchaObj.getValidate();
+            if(!result){
+                return alert("请完成验证");
             }
         });
-        // 将验证码加到id为captcha的元素里，同时会有三个input的值：geetest_challenge, geetest_validate, geetest_seccode
-        captchaObj.appendTo("#embed-captcha");
-        captchaObj.onReady(function () {
-            $("#wait")[0].className = "hide";
-        });
-        // 更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html
     };
+
     $.ajax({
-        // 获取id，challenge，success（是否启用failback）
-        url: "gt3-php-sdk/web/StartCaptchaServlet.php?t=" + (new Date()).getTime(), // 加随机数防止缓存
+        url: "gt3-php-sdk/web/StartCaptchaServlet.php?t=" + (new Date()).getTime(),
         type: "get",
         dataType: "json",
-        success: function (data) {
-            console.log(data);
-            // 使用initGeetest接口
-            // 参数1：配置参数
-            // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
+        success: function(data){
             initGeetest({
                 gt: data.gt,
                 challenge: data.challenge,
+                offline: !data.success,
                 new_captcha: data.new_captcha,
-                product: "bind", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
-                width: "200px",
-                offline: !data.success // 表示用户后台检测极验服务器是否宕机，一般不需要关注
-                // 更多配置参数请参见：http://www.geetest.com/install/sections/idx-client-sdk.html#config
-            }, handlerEmbed);
+                timeout: "5000",
+                product: "bind",
+                width: "200px"
+            }, hander);
         }
     });
-</script>
-';
+</script>';echo "\n";
+//echo '
+//<script>
+//    var handlerEmbed = function (captchaObj) {
+//        $("#embed-submit").click(function (e) {
+//            var validate = captchaObj.getValidate();
+//            if (!validate) {
+//                $("#notice")[0].className = "show";
+//                setTimeout(function () {
+//                    $("#notice")[0].className = "hide";
+//                }, 2000);
+//                e.preventDefault();
+//            }
+//        });
+//        // 将验证码加到id为captcha的元素里，同时会有三个input的值：geetest_challenge, geetest_validate, geetest_seccode
+//        captchaObj.appendTo("#embed-captcha");
+//        captchaObj.onReady(function () {
+//            $("#wait")[0].className = "hide";
+//        });
+//        // 更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html
+//    };
+//    $.ajax({
+//        // 获取id，challenge，success（是否启用failback）
+//        url: "gt3-php-sdk/web/StartCaptchaServlet.php?t=" + (new Date()).getTime(), // 加随机数防止缓存
+//        type: "get",
+//        dataType: "json",
+//        success: function (data) {
+//            console.log(data);
+//            // 使用initGeetest接口
+//            // 参数1：配置参数
+//            // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
+//            initGeetest({
+//                gt: data.gt,
+//                challenge: data.challenge,
+//                new_captcha: data.new_captcha,
+//                product: "bind", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
+//                width: "200px",
+//                offline: !data.success // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+//                // 更多配置参数请参见：http://www.geetest.com/install/sections/idx-client-sdk.html#config
+//            }, handlerEmbed);
+//        }
+//    });
+//</script>
+//';
             echo "\t\t\t";echo '</div>';echo "\n";
         }else{
             // 请求的是注册页
