@@ -566,34 +566,3 @@
 		background: red;
 	}
 
-/*********************************************************************************/
-/* Login&captcha                                                                     */
-/*********************************************************************************/
-
-    .inp {
-        border: 1px solid gray;
-        padding: 0 10px;
-        width: 200px;
-        height: 30px;
-        font-size: 18px;
-    }
-    .btn {
-        border: 1px solid gray
-        width: 100px;
-        height: 30px;
-        font-size: 18px;
-        cursor: pointer;
-    }
-    #embed-captcha {
-        width: 300px;
-        margin: 0 auto;
-    }
-    .show {
-        display: block;
-    }
-    .hide {
-        display: none;
-    }
-    #notice {
-        color: red;
-    }
