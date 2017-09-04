@@ -179,8 +179,7 @@ Develop by ZhuBrocadeSoar
             echo $_SERVER['REMOTE_HOST'];echo "\n";
             // 打印登陆表单
             echo "\t\t\t";echo '<div id="loginpage">';echo "\n";
-            echo "\t\t\t\t";echo '<a name="loginform"></a>';echo "\n";
-            echo "\t\t\t\t";echo '<form class="popup" action="login.php" method="post">';echo "\n";
+            echo "\t\t\t\t";echo '<form id="longinform" class="popup" action="login.php" method="post">';echo "\n";
             echo "\t\t\t\t\t";echo '<p>';echo "\n";
             echo "\t\t\t\t\t\t";echo '<label for="username">用户名:</label>';echo "\n";
             if(isset($_POST['username'])){
@@ -202,7 +201,7 @@ Develop by ZhuBrocadeSoar
             echo "\t\t\t\t\t\t";echo '<input class="inp" id="passwordI" type="password"/>';echo "\n";
             echo "\t\t\t\t\t";echo '</p>';echo "\n";
             echo "\t\t\t\t\t";echo '<div id="btn" class="btn">登陆</div>';echo "\n";
-            //echo "\t\t\t\t\t";echo '<p id="wait" class="show">正在加载验证码......</p>';echo "\n";
+            echo "\t\t\t\t\t";echo '<p id="wait" class="show">正在加载验证码......</p>';echo "\n";
             //echo "\t\t\t\t\t";echo '<p id="notice" class="hide">请先完成验证</p>';echo "\n";
             // 检查是否通过提交按钮提交了POST数据然后做用户名和密码的登陆检查
             //
@@ -217,34 +216,34 @@ Develop by ZhuBrocadeSoar
     var handler = function (captchaObj){
         captchaObj.onReady(function(){
             $("#wait").hide();
-        }).onSuccess(function(){
-            var result = captchaObj.getValidate();
-            if(!result){
-                return alert("请完成验证");
-            }
-            $.ajax({
-                url: "login.php?#loginform",
-                type: "post",
-                dataType: "json",
-                data: {
-                    username: $("#usernameI").val(),
-                    password: $("#passwordI").val(),
-                    captchastate: $("#captchastateI").val(),
-                    geetest_challenge: result.geetest_challenge,
-                    geetest_validate: result.geetest_validate,
-                    geetest_seccode: result.geetest_seccode
-                },
-                success: function (data){
-                    if(data.status === "success"){
-                        setTimeout(function(){
-                            $("#captchastateI").val("success");
-                        }, 1500);
-                    }else if(data.status === "fail"){
-                        setTimeout(function(){
-                            $("#captchastateI").val("fail");
-                        }, 1500);
-                    }
+        });
+        captchaObj.onSuccess(function(){
+        var result = captchaObj.getValidate();
+        if(!result){
+            return alert("请完成验证");
+        }
+        $.ajax({
+            url: "login.php?",
+            type: "post",
+            dataType: "json",
+            data: {
+                username: $("#usernameI").val(),
+                password: $("#passwordI").val(),
+                geetest_challenge: result.geetest_challenge,
+                geetest_validate: result.geetest_validate,
+                geetest_seccode: result.geetest_seccode
+            },
+            success: function (data){
+                if(data.status === "success"){
+                    setTimeout(function(){
+                        $("#captchastateI").val("success");
+                    }, 1500);
+                }else if(data.status === "fail"){
+                    setTimeout(function(){
+                        $("#captchastateI").val("fail");
+                    }, 1500);
                 }
+            }
             });
         });
         $("#btn").click(function(){
