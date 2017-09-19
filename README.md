@@ -110,3 +110,9 @@ mysql\> DESC gt3idkey;
 2017年9月2日 17:43 目前移动端还是丑的很，考虑一下找个新的模板
 
 2017年9月2日 22:51 申请google的reCAPTCHA作为人机挑战工具
+
+
+# Refs
+
+* document.getElementById("title\_index").innerHTML="吾爱吾庐-改变标题";
+* $("#title\_index").innerHTML="吾爱吾庐-改变标题-AJAX";
