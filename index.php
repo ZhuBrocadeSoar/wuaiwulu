@@ -62,19 +62,19 @@ https://brocadesoar.cn
                     </div>
                     <p>时间会匆匆流逝，其间发生的，美好的、不好的事物总归会在脑海中渐渐遗忘，尤其是像我一样，获得了遗忘的天赋。若是旅行，可以拿相机记录一些时刻，但大多数情况我没能把握那稍纵即逝的刹那。写，是一种记录方式，是一种态度，是一种生活情趣，是一种营销手段。我感谢自己有写的欲望和写的勇气，激励自己要不断前进。</p>
                 </div>
-            </div>
-            <div id="copyright">
-                <span>
-                    <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"><img alt="知识共享许可协议" style="border-width:0"i src="images/88x31.png" /></a>
-                    <br />
-                    本作品采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可。
-                </span>
-                <span>
-                    Template Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>|Site Build by <a href="https://brocadesoar.cn" rel="nofollow">ZhuBrocadeSoar</a>
-                </span>
-                <span><div style="width:300px;margin:0 auto; padding:20px 0;">
-                浙ICP备17027825号-1|<a target=" blank " href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33078302100258" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="images/beianlogo.png" style="float:left;" /><p style="float:left;height:20px;line-height:20px;matgin:0px 0px 0px 5px; color:#939393;">浙公网安备 33078302100258号</p></a>
-                </div></span>
+                <div id="copyright">
+                    <span>
+                        <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"><img alt="知识共享许可协议" style="border-width:0"i src="images/88x31.png" /></a>
+                        <br />
+                        本作品采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可。
+                    </span>
+                    <span>
+                        Template Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>|Site Build by <a href="https://brocadesoar.cn" rel="nofollow">ZhuBrocadeSoar</a>
+                    </span>
+                    <span><div style="width:300px;margin:0 auto; padding:20px 0;">
+                    浙ICP备17027825号-1|<a target=" blank " href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33078302100258" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="images/beianlogo.png" style="float:left;" /><p style="float:left;height:20px;line-height:20px;matgin:0px 0px 0px 5px; color:#939393;">浙公网安备 33078302100258号</p></a>
+                    </div></span>
+                </div>
             </div>
 		</div>	
 	<!-- BODY-END -->	
