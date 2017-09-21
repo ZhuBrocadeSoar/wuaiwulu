@@ -60,7 +60,7 @@ https://brocadesoar.cn
             <script>
     $(document).ready(function(){
         $("div#header").load(function(){
-            $("div#featured").style.val(display:none);
+            $("div#featured").style.val("display:none");
         });
     });
             </script>
