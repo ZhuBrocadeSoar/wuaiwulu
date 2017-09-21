@@ -72,7 +72,7 @@ https://brocadesoar.cn
                         Template Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>|Site Build by <a href="https://brocadesoar.cn" rel="nofollow">ZhuBrocadeSoar</a>
                     </span>
                     <span><div style="width:300px;margin:0 auto; padding:20px 0;">
-                    浙ICP备17027825号-1|<a target=" blank " href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33078302100258" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="images/beianlogo.png" style="float:left;" /><p style="float:left;height:20px;line-height:20px;matgin:0px 0px 0px 5px; color:#939393;">浙公网安备 33078302100258号</p></a>
+                    浙ICP备17027825号-1<a target=" blank " href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33078302100258" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="images/beianlogo.png" style="float:left;" /><p style="float:left;height:20px;line-height:20px;matgin:0px 0px 0px 5px; color:#939393;">浙公网安备 33078302100258号</p></a>
                     </div></span>
                 </div>
             </div>
