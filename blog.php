@@ -58,7 +58,7 @@ https://brocadesoar.cn
             </div>
             <script src="https://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
             <script>
-    $("div#header").load(function(){
+    $("div#header").click(function(){
         $("div#featured").style.val("display:none")
     })
             </script>
