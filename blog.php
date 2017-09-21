@@ -63,7 +63,7 @@ https://brocadesoar.cn
                     </div>
                     <ul id="topic_list" class="style1">
                         <li>
-                            <p class="data">Jan<b>03</b></p>
+                            <p class="date">Jan<b>03</b></p>
                             <h3><a href="blog.php?">文章的标题</a></h3>
                             <p>文章的摘要</p>
                         </li>
