@@ -14,6 +14,11 @@ https://brocadesoar.cn
 本博客网站样式基于上述开发者(Design by TEMPLATED), 许可证信息见    
 -->
 
+<!-- SESSION-START -->
+<?php
+    session_start();
+?>
+
 <!-- HTML-BEGIN -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<!-- HEAD-BEGIN -->	
@@ -41,7 +46,7 @@ https://brocadesoar.cn
 				</div>	
                 <div id="menu">
                     <ul>
-                        <li><a href="https://brocadesoar.cn" accesskey="1" title ="">主页</a></li>
+                        <li class="current_page_item"><a href="https://brocadesoar.cn" accesskey="1" title ="">主页</a></li>
                         <li><a href="blog.php" accesskey="2" title="">博客</a></li>
                         <li><a href="bbs.php" accesskey="3" title="">留言</a></li>
                         <li><a href="#" accesskey="4" title="">梯子</a></li>
