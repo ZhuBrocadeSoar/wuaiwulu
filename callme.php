@@ -10,13 +10,16 @@
                 echo "Error: " . mysqli_error();
             }
             $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
-            $countList['count'] = $row;
+            $resultArray['count'] = $row;
             $retval = mysqli_query($connToMysql, "SELECT name_seller FROM seller_list");
             if(!$retval){
                 echo "Error: " . mysqli_error();
             }
             $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
-            echo json_encode(array_merge($countList, $row));
+            while($row = mysql_fetch_array($retval, MYSQLI_NUM)){
+                $resultArray = array_merge($resultArray, $row);
+            }
+            echo json_encode(array_merge($resultArray));
         }
     }
 ?>
