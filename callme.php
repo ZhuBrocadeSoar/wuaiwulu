@@ -1,5 +1,5 @@
 <?php
-$_GET['query'] = "seller_list";
+//$_GET['query'] = "seller_list";
     $connToMysql = mysqli_connect("localhost", "nitmaker_cn", "nitmaker.cn", "callme");
     if(mysqli_connect_errno()){
         echo "Error: " . mysqli_connect_error();
@@ -12,14 +12,14 @@ $_GET['query'] = "seller_list";
             }
             $row = mysqli_fetch_array($retval, MYSQLI_NUM);
             $resultArray['count'] = $row[0];
-            $retval = mysqli_query($connToMysql, "SELECT id_seller, name_seller FROM seller_list");
+            $retval = mysqli_query($connToMysql, "SELECT id_seller, name_seller, path_photo FROM seller_list");
             if(!$retval){
                 echo "Error: " . mysqli_error();
             }
             $sellerArray = array();
             $i = '1';
             while($row = mysqli_fetch_array($retval, MYSQLI_NUM)){
-                $sellerArray[$i] = array("id" => $row[0], "name" => $row[1]);
+                $sellerArray[$i] = array("id" => $row[0], "name" => $row[1], "imageURL" => $row[2]);
                 $i++;
             }
             $resultArray['list'] = $sellerArray;
