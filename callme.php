@@ -20,6 +20,6 @@
                 $resultArray = array_merge($resultArray, $row);
             }
             echo json_encode($resultArray);
-        }else if($_GET['query'] == "type")
+        }
     }
 ?>
