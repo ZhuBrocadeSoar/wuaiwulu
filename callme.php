@@ -16,9 +16,12 @@
                 echo "Error: " . mysqli_error();
             }
             while($row = mysqli_fetch_array($retval, MYSQLI_NUM)){
-                $resultArray = array_merge($resultArray, $row);
+                $resultArray['name_list'] = array_merge($resultArray['name_list'], $row);
             }
             echo json_encode($resultArray);
+        }else if($GET['query'] == "good_list"){
+            //
         }
     }
 ?>
+
