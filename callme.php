@@ -16,6 +16,7 @@ $_GET['query'] = "seller_list";
             if(!$retval){
                 echo "Error: " . mysqli_error();
             }
+            $nameArray = array();
             while($row = mysqli_fetch_array($retval, MYSQLI_NUM)){
                 $nameArray = array_merge($nameArray, $row);
             }
