@@ -16,10 +16,10 @@
                 echo "Error: " . mysqli_error();
             }
             $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
-            while($row = mysqli_fetch_array($retval, MYSQLI_NUM)){
+            while($row = mysqli_fetch_array($retval, MYSQLI_ASSOC)){
                 $resultArray = array_merge($resultArray, $row);
             }
             echo json_encode($resultArray);
-        }
+        }else if($_GET['query'] == "type")
     }
 ?>
