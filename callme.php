@@ -3,8 +3,8 @@
     if(mysqli_connect_errno()){
         echo "Error: " . mysqli_connect_error();
     }
-    if(/*isset($_GET['query'])*/1){
-        if(/*$_GET['query'] == "seller_list"*/1){
+    if(isset($_GET['query'])){
+        if($_GET['query'] == "seller_list"){
             $retval = mysqli_query($connToMysql, "SELECT COUNT(*) FROM seller_list");
             if(!$retval){
                 echo "Error: " . mysqli_error();
