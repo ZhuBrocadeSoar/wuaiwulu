@@ -12,7 +12,7 @@ $_GET['query'] = "seller_list";
             }
             $row = mysqli_fetch_array($retval, MYSQLI_NUM);
             $resultArray['count'] = $row[0];
-            $retval = mysqli_query($connToMysql, "SELECT name_seller FROM seller_list");
+            $retval = mysqli_query($connToMysql, "SELECT id_seller, name_seller FROM seller_list");
             if(!$retval){
                 echo "Error: " . mysqli_error();
             }
@@ -23,7 +23,6 @@ $_GET['query'] = "seller_list";
             $resultArray['list'] = $nameArray;
             echo json_encode($resultArray);
         }else if($GET['query'] == "good_list"){
-            //
         }
     }
 ?>
