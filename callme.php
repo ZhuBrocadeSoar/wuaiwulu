@@ -16,11 +16,12 @@ $_GET['query'] = "seller_list";
             if(!$retval){
                 echo "Error: " . mysqli_error();
             }
-            $nameArray = array();
+            $sellerArray = array();
+            $i = '1';
             while($row = mysqli_fetch_array($retval, MYSQLI_NUM)){
-                $nameArray = array_merge($nameArray, $row);
+                $sellerArray[$i] = array("id" => $row[0], "name" => $row[2]);
             }
-            $resultArray['list'] = $nameArray;
+            $resultArray['list'] = $sellerArray;
             echo json_encode($resultArray);
         }else if($GET['query'] == "good_list"){
         }
