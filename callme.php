@@ -11,7 +11,7 @@ $_GET['query'] = "seller_list";
                 echo "Error: " . mysqli_error();
             }
             $row = mysqli_fetch_array($retval, MYSQLI_NUM);
-            $resultArray = $row;
+            $resultArray['count'] = $row;
             $retval = mysqli_query($connToMysql, "SELECT name_seller FROM seller_list");
             if(!$retval){
                 echo "Error: " . mysqli_error();
