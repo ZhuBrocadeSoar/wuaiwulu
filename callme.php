@@ -19,7 +19,8 @@ $_GET['query'] = "seller_list";
             $sellerArray = array();
             $i = '1';
             while($row = mysqli_fetch_array($retval, MYSQLI_NUM)){
-                $sellerArray[$i] = array("id" => $row[0], "name" => $row[2]);
+                $sellerArray["$i"] = array("id" => $row[0], "name" => $row[2]);
+                $i++;
             }
             $resultArray['list'] = $sellerArray;
             echo json_encode($resultArray);
