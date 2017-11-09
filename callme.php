@@ -20,7 +20,8 @@ $_GET['query'] = "seller_list";
             while($row = mysqli_fetch_array($retval, MYSQLI_NUM)){
                 $nameArray = array_merge($nameArray, $row);
             }
-            echo json_encode(array_merge($resultArray, $nameArray));
+            $resultArray['list'] = $nameArray;
+            echo json_encode($resultArray);
         }else if($GET['query'] == "good_list"){
             //
         }
