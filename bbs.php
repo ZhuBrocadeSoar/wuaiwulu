@@ -54,6 +54,28 @@ https://brocadesoar.cn
 					</ul>
 				</div><!-- id="menu" -->
 			</div><!-- id="header" -->
+			<script src="https://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+			<div id="main">
+				<div id="featured">
+					<ul class="button">
+						<li><a href="bbs.php?contentState=write">写文章</a></li>
+					</ul>
+					<p>本站尊重您的发言权并且鼓励您对我和我的网站提供意见和建议, 但是出于交流效率和网络安全的考虑, 目前禁止尚未在本站<a href="login.php?contentState=register">注册</a>并<a href="login.php">登陆</a>的匿名用户在本留言版发言</p>
+				</div><!-- id="featured" -->
+				<div id="copyright">
+					<span>
+                        <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"><img alt="知识共享许可协议" style="border-width:0"i src="images/88x31.png" /></a>
+                        <br />
+                        本作品采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可。
+                    </span>
+                    <span>
+                        Template Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>|Site Build by <a href="https://brocadesoar.cn" rel="nofollow">ZhuBrocadeSoar</a>
+                    </span>
+                    <span><div style="width:300px;margin:0 auto; padding:20px 0;">
+                    浙ICP备17027825号-1<a target=" blank " href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33078302100258" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="images/beianlogo.png" style="float:left;" /><p style="float:left;height:20px;line-height:20px;matgin:0px 0px 0px 5px; color:#939393;">浙公网安备 33078302100258号</p></a>
+                    </div></span>
+				</div><!-- id="copyright" -->
+			</div><!-- id="main" -->
 		</div><!-- id="page" -->
 	</body>
 </html>

@@ -37,7 +37,7 @@ Develop by ZhuBrocadeSoar
     					<h1><a href="https://brocadesoar.cn">soar</a></h1>	
     					<span>Develop by <a href="https://brocadesoar.cn" rel="nofollow">ZhuBrocadeSoar</a></span>
                         <span><p>腹中没有半瓶醋，三分热度写我情。</p><p>文章从来教我改，不敢写一句违心。</p></span>
-                </div>
+                </div><!-- id="logo" -->
                 <div id="menu">
                     <ul>
                         <li><a href="https://brocadesoar.cn" accesskey="1" title ="">主页</a></li>
@@ -50,8 +50,8 @@ Develop by ZhuBrocadeSoar
                         <li><a href="#" accesskey="6" title="">关于</a></li>
                         <li><a href="login.php" accesskey="7" title="">登陆</a></li>
                     </ul>
-                </div>
-            </div>
+                </div><!-- id="menu" -->
+            </div><!-- id="header" -->
             <script src="https://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
             <script>
     $(document).ready(function(){
@@ -65,11 +65,11 @@ Develop by ZhuBrocadeSoar
                     <div id="topic_list_title" class="title">
                         <h2>欢迎来到我的世界</h2>
                         <span class="byline">随笔、日记、转载、生活、技术、扯淡</span>
-                    </div>
+                    </div><!-- id="topic_list_title" -->
                     <div id="topic_title" class="title">
                         <h2>文章的标题标题</h2>
                         <span class="byline">1997-01-03 15:15<span>
-                    </div>
+                    </div><!-- id="topic_title" -->
                     <ul id="topic_list" class="style1">
                         <li>
                             <p class="date">Jan<b>03</b></p>
@@ -80,7 +80,7 @@ Develop by ZhuBrocadeSoar
                     <p id="topic_abstract" style="border-style:solid">文章的摘要摘要摘要</p>    
                     <div id="topic_content" style="text-align:left">
                         文章的正文
-                    </div>
+                    </div><!-- id="topic_abstract" -->
                     <div id="prevnext" style="text-align:center">
                         <form name="pageNumGet" action="blog.php" method="get">
                             <a href="blog.php?">上一页</a>
@@ -91,8 +91,8 @@ Develop by ZhuBrocadeSoar
                             <input type="hidden" name="pageSize" value="5" />
                             <a href="blog.php?">下一页</a>
                         </form>
-                    </div>
-                </div>
+                    </div><!-- id="prevnext" -->
+                </div><!-- id="featured" -->
                 <div id="copyright">
                     <span>
                         <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"><img alt="知识共享许可协议" style="border-width:0"i src="images/88x31.png" /></a>
@@ -105,8 +105,8 @@ Develop by ZhuBrocadeSoar
                     <span><div style="width:300px;margin:0 auto; padding:20px 0;">
                     浙ICP备17027825号-1<a target=" blank " href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33078302100258" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="images/beianlogo.png" style="float:left;" /><p style="float:left;height:20px;line-height:20px;matgin:0px 0px 0px 5px; color:#939393;">浙公网安备 33078302100258号</p></a>
                     </div></span>
-                </div>
-            </div>
-        </div>
+                </div><!-- id="copyright" -->
+            </div><!-- id="main" -->
+        </div><!-- id="page" -->
     </body>
 </html>
